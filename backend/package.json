@@ -1,0 +1,24 @@
+{
+	"name": "pandemonium-beta",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"build": "npx hardhat compile",
+		"deploy-testnet": "npx hardhat run ./scripts/Pandemonium_deploy.js --network OPTIMISM_GOERLI",
+		"deploy-pandemonium": "npx hardhat run ./scripts/Pandemonium_deploy.js  --network OPTIMISM_MAINNET",
+		"deploy-parrotg": "npx hardhat run ./scripts/ParrotCoin_deploy.js  --network OPTIMISM_GOERLI",
+		"node": "npx hardhat node",
+		"deploy-local": "npx hardhat run ./scripts/Pandemonium_deploy.js --network localhost"
+	},
+	"dependencies": {
+		"@chainlink/contracts": "^0.5.1",
+		"@openzeppelin/contracts": "^4.8.2",
+		"alchemy-sdk": "^2.6.2",
+		"dotenv": "^16.0.2"
+	},
+	"devDependencies": {
+		"@nomicfoundation/hardhat-toolbox": "^1.0.2",
+		"erc721a": "^4.2.3",
+		"hardhat": "^2.10.1"
+	}
+}

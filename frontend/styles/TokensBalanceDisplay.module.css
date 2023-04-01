@@ -1,0 +1,92 @@
+.token_panel_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  color: #ffffff;
+
+}
+
+.tokens_box {
+  background-color: #gray;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid #424759;
+  padding: 2em;
+  width: 60%;
+  height: 60%;
+  overflow: scroll;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  color: #ffffff;
+
+}
+
+.header {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 2em;
+}
+
+.token_container {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1.5em;
+  border-radius: 12px;
+  border: 1px solid #424759;
+  padding: 1em;
+}
+
+.image_container {
+  height: 50px;
+  width: 50px;
+  border-radius: 12px;
+}
+
+.image_placeholder_container {
+  height: 50px;
+  width: 50px;
+  border-radius: 12px;
+  background: linear-gradient(#ff6b6b, #ff0022);
+}
+
+.image_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.selected_token_container {
+  background-color: #32334C;
+  border-radius: 12px;
+  border: 1px solid #424759;
+  padding: 1em;
+}
+
+.token_name_sybol_container {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.token_name {
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  gap: 1em;
+  color: #ffffff;
+}
+
+.token_info {
+  display: flex;
+  gap: 0.5em;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.coin_symbol {
+  color: #6a6b7e;
+}
