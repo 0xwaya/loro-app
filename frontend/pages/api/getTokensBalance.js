@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     const ethBalanceObject = {
       name: "Ethereum",
       symbol: "ETH",
-      logo: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+      logo: "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
       decimals: 18,
       balance: parsedEthBalance.toFixed(2),
       address: "0x0000000",  
