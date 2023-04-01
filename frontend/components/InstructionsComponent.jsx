@@ -11,9 +11,11 @@ export default function InstructionsComponent() {
         <h1>
           pandemonium<span>squad</span>
         </h1>
-        <p>
-          lottery reward to a random holder on every mint/sale <span>Parrot-Lotto</span>
-        </p>
+        <div className={styles.parrot_coin}>
+        <li>20% of all sales go to the Macaw Conservation Fund</li>
+        <li>20% of all sales will be injected into the ParrotCoin lottery</li>
+        <li>ParrotCoin lottery will be drawn every mint</li>
+        </div>
       </header>
 
       <div className={styles.buttons_container}>
@@ -23,7 +25,7 @@ export default function InstructionsComponent() {
         >
           <div className={styles.button}>
             {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
-            <p>Macaw collection</p>
+            <p>COLLECTION</p>
           </div>
         </a>
         <a
@@ -32,7 +34,7 @@ export default function InstructionsComponent() {
         >
           <div className={styles.button}>
             {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
-            <p>Macaw Minter</p>
+            <p>MINTER</p>
           </div>
         </a>
         <a
@@ -41,7 +43,7 @@ export default function InstructionsComponent() {
         >
           <div className={styles.button}>
             {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}  
-            <p>Parrot Coin</p>
+            <p>BALANCE</p>
           </div>
         </a>
       </div>
