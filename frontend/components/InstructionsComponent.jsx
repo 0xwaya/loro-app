@@ -52,7 +52,7 @@ export default function InstructionsComponent() {
         <div className={styles.icons_container}>
           <div>
             <a
-              href="https://github.com/0xwaya/pandemonium-app"
+              href="https://github.com/0xwaya/loro-app"
               target={"_blank"}
             >
               Leave a star on Github
