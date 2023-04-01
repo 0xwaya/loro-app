@@ -13,8 +13,9 @@ export default function InstructionsComponent() {
         </h1>
         <div className={styles.parrot_coin}>
         <li>20% of all sales go to the Macaw Conservation Fund</li>
-        <li>20% of all sales will be injected into the ParrotCoin lottery</li>
-        <li>ParrotCoin lottery will be drawn every mint</li>
+        <li>20% of all sales go to the NFT designers</li>
+        <li>20% of all sales will be injected into the ParrotCoin lottery contract</li>
+        <li>ParrotCoin lottery will be drawn every mint, one holder wins</li>
         </div>
       </header>
 
