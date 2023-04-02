@@ -3,28 +3,33 @@
     width: 814px;
     padding: 2em;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
   
   .header {
     display: flex;
     gap: 24px;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
+
   }
   
   .image {
     height: 80px;
     width: 80px;
     border-radius: 50%;
+    object-fit: cover;
+
   }
   
   .collection_name {
     display: flex;
+    color: white;
     font-weight: 700;
     font-size: 20px;
     gap: 4px;
     align-items: center;
+
   }
   
   .company_name {
@@ -39,6 +44,7 @@
     margin-left: auto;
     align-items: center;
     gap: 4px;
+
   }
   
   .verified_icon {
@@ -59,7 +65,9 @@
   .description {
     font-weight: 400;
     font-size: 14px;
-    color: #4e4e4e;
+    color: white;
+    margin-top: 1em;
+
   }
   
   .link {

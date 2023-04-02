@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   // parse the address and chain from the request body
   const {
      address,
-      chain = "OPTIMISM_GOERLI",
+      chain = "OPT_GOERLI",
     
     } = JSON.parse(req.body);
 
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   // set the settings for Alchemy SDK
   const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: Network.OPT_GOERLI,
+    network: Network.chain,
   };
 
   // create an instance of the Alchemy SDK
@@ -31,17 +31,17 @@ export default async function handler(req, res) {
     });
 
     // fetch the LORO balance for the given address
-    const ethBalance = await alchemy.core.getBalance(address);
-    const parsedEthBalance = parseInt(ethBalance.toString()) / Math.pow(10, 18);
+    const loroBalance = await alchemy.core.getBalance(address);
+    const parsedLoroBalance = parseInt(loroBalance.toString()) / Math.pow(10, 18);
 
     // create an object representing the LORO token balance
-    const ethBalanceObject = {
-      name: "Ethereum",
-      symbol: "ETH",
-      logo: "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
-      decimals: 18,
-      balance: parsedEthBalance.toFixed(2),
-      address: "0x0000000",  
+    const loroBalanceObject = {
+      name: "ParrotCoin", // LORO token name
+      symbol: "LORO", // LORO token symbol
+      logo: "https://github.com/0xwaya/loro-app/blob/main/frontend/public/token-logo.png?raw=true",
+      decimals: 18, // LORO token has 18 decimals
+      balance: parsedLoroBalance.toFixed(2),
+      address: "0x74a26954883584a260460711A3185F4095C03494",  // LORO token address
     };
  
 
@@ -76,7 +76,7 @@ export default async function handler(req, res) {
     );
 
     // create an array of objects representing each token balance
-    const unifiedBalancedAndMetadata = [ethBalanceObject];
+    const unifiedBalancedAndMetadata = [loroBalanceObject];
 
     for (let x = 0; x < fetchedTokenMetadata.length - 1; x++) {
       const tokenMetadata = fetchedTokenMetadata[x];
@@ -118,7 +118,7 @@ export default async function handler(req, res) {
 
 const settings = {
   apiKey: process.env.ALCHEMY_API_KEY,
-  network: Network.OPT_GOERLI,
+  network: Network.chain,
 };
 
 const alchemy = new Alchemy(settings);

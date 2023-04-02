@@ -15,6 +15,7 @@ import {
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+import { NextUIProvider } from '@nextui-org/react';
 import MainLayout from "../layout/mainLayout";
 
 const { chains, provider } = configureChains(
@@ -51,17 +52,19 @@ function MyApp({ Component, pageProps }) {
     },
   });
   return (
+    <NextUIProvider>
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider
         modalSize="compact"
         initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
         chains={chains}
       >
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
+      <MainLayout>
+      <Component {...pageProps} />
+      </MainLayout>
       </RainbowKitProvider>
     </WagmiConfig>
+    </NextUIProvider>
   );
 }
 

@@ -96,8 +96,44 @@
 
 }
 @media (max-width: 768px) {
+  .token_panel_container {
+    margin-top: 0;
+  }
   .tokens_box {
     width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    padding: 0;
   }
+  .header {
+    margin-bottom: 1em;
+  }
+  .token_container {
+    margin-block: 1em;
+  }
+  .image_container {
+    height: 25px;
+    width: 25px;
+  }
+  .image_placeholder_container {
+    height: 25px;
+    width: 25px;
+  }
+  .token_name_sybol_container {
+    column-gap: 0.3rem;
+  }
+  .token_name {
+    gap: 0.5em;
+    font-size: 14px;
+  }
+  .token_info {
+    gap: 0.3em;
+    font-size: 14px;
+  }
+  .coin_symbol {
+    font-size: 12px;
+  }
+  
 }
 

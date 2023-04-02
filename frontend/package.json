@@ -10,6 +10,7 @@
 		"marketplace": "npx create-web3-dapp marketplace"
 	},
 	"dependencies": {
+		"@nextui-org/react": "^1.0.0-beta.12",
 		"@rainbow-me/rainbowkit": "^0.12.4",
 		"alchemy-sdk": "^2.6.2",
 		"next": "13.1.2",

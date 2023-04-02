@@ -1,4 +1,3 @@
-// Import CSS styles, and necessary modules from packages
 import styles from "../styles/NftMinter.module.css";
 import { Contract } from "alchemy-sdk";
 import { useState } from "react";

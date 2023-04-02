@@ -1,4 +1,8 @@
-
+@media (max-width: 600px) {
+	.container {
+		flex-direction: column;
+	}
+}
 
 .main {
 	padding: 2rem 0;
