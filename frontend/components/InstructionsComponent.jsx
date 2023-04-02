@@ -1,21 +1,24 @@
 import styles from "../styles/InstructionsComponent.module.css";
 import Router, { useRouter } from "next/router";
 
+
 export default function InstructionsComponent() {
 
   const router = useRouter();
 
   return (
+       
     <div className={styles.container}>
       <header className={styles.header_container}>
         <h1>
           pandemonium<span>squad</span>
         </h1>
-        <div className={styles.parrot_coin}>
-        <li>20% of all sales go to the Macaw Conservation Fund</li>
-        <li>20% of all sales go to the NFT designers</li>
-        <li>20% of all sales will be injected into the ParrotCoin lottery contract</li>
+        <div className={styles.header_container + "li" }>
+        <li>10% of all sales go to the Macaw Conservation Fund</li>
+        <li>10% of all sales go to the NFT designers</li>
+        <li>10% of all sales will be injected into the ParrotCoin lottery contract</li>
         <li>ParrotCoin lottery will be drawn every mint, one holder wins</li>
+        <li>Special access to the Macaw web3 incubator</li>
         </div>
       </header>
 

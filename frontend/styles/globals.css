@@ -4,6 +4,20 @@
 	.container {
 		flex-direction: column;
 	}
+
+	.container > * {
+		width: 100%;
+	}
+
+	.container > *:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+
+	.container > *:not(:first-child) {
+		margin-top: 1rem;
+	}
+
+
 }
 
 html,
