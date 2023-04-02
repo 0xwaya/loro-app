@@ -2,16 +2,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 0 1em;
   margin-top: 3rem;
-  color: rgb(12, 12, 12);
-
+  color: rgb(110, 118, 125);
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 0px 1px, rgb(0 0 0 / 10%) 0px 4px 16px;
+  border: 1px solid rgb(207, 217, 240);
+  padding: 2em;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .tokens_box {
   background-color: white;
   border-radius: 12px;
   border: 1px solid #cfd9f0;
-  padding: 2em;
+  padding: 1em;
   height: 300px;
   width: 378px;
   overflow: scroll;
@@ -33,6 +45,8 @@
   justify-content: space-between;
   margin-block: 1.5em;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
 }
 
@@ -69,6 +83,7 @@
   column-gap: 0.5rem;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   
 
 }
@@ -91,8 +106,8 @@
 }
 
 .coin_symbol {
-  color: #4e4e4e;
   font-weight: 400;
+  font-size: 16px;
 
 }
 
