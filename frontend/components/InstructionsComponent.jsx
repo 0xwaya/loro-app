@@ -67,7 +67,7 @@ export default function InstructionsComponent() {
             </a>
           </div>
         </div>
-        <p>built by Waya Labs powered by Alchemy create-web3-DApp </p>
+        <p>built by Waya Labs powered by Optimism</p>
       </div>
     </div>
   );
