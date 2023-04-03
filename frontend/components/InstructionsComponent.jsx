@@ -26,7 +26,7 @@ export default function InstructionsComponent() {
       <div className={styles.buttons_container}>
         <a
           target={"_blank"}
-          href={"./squadInfo"}
+          href={"./"}
         >
           <div className={styles.button}>
             {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
@@ -77,7 +77,7 @@ export default function InstructionsComponent() {
             </a>
           </div>
         </div>
-        <p>built by Waya Labs powered by Optimism</p>
+        <p>built by 0xwaya powered by Optimism Goerli<br></br>EXPERIMENTAL USE ONLY!!<br></br>© 2023 wayalabs.nft</p>
       </div>
     </div>
   );
