@@ -94,18 +94,53 @@
   .data_point {
     font-weight: 700;
     font-size: 20px;
-    color: black;
+    color: white;
   }
   
   @media screen and (max-width: 955px) {
     .collection_container {
       width: 700px;
     }
+
+    .data_container {
+      flex-direction: column;
+    }
+
+    .data_point_container {
+      margin-top: 1em;
+    }
+
+    .data_title {
+      font-size: 14px;
+    }
+
+    .data_point {
+      font-size: 16px;
+    }
+
   }
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 780px) {
     .collection_container {
       width: 500px;
     }
+
+    .data_container {
+      flex-direction: column;
+    }
+
+    .data_point_container {
+      margin-top: 1em;
+    }
+
+    .data_title {
+      font-size: 14px;
+    }
+
+    .data_point {
+      font-size: 16px;
+    }
+
+
   }
   @media screen and (max-width: 560px) {
     .collection_container {
