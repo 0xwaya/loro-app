@@ -1,34 +1,53 @@
 @media only screen and (max-width: 768px) {
 	.header_container h1{
-		font-size: 24px;
-		line-height:32px;
+		font-size: 16px;
+		line-height:24px;
+		gap: 1rem;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		flex-direction: center;
 		margin-bottom: 1rem;
 		margin-top: 1rem;
+		padding: 0 2rem;
+
 	}
 	
 	.header_container p{
 		font-size: 16px;
 		line-height: 24px;
-
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 1rem;
 	}
+
 	.header_container li{
 		font-size: 14px;
 		line-height: 24px;
+		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: column;
+		margin-bottom: 0 1rem;
 
 	}
 	.buttons_container{
-		gap: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		width: 100%;
+		align-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1rem;
+
 	}
 	.button{
-		width: 60%;
-		padding: 1rem;
+		width: 80%;
+		padding: 2rem;
+		margin-bottom: 0rem;
+		margin-top: 0rem;
 
 	}
 	.button p{
@@ -46,41 +65,65 @@
 	font-family: 'Roboto', sans-serif;
 	display: flex;
 	flex-direction: column;
-	height: 80vh;
-	width: 100%;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
+	height: 100%
 }
 .header_container{
-	margin-bottom: 1rem;
+	margin : 0 1rem;
+	margin-top: 0 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
+	width: 100%;
+	height: 100%;
 
 }
 
 .header_container h1{
-	font-size: 64px;
-	font-weight: 700;
-	line-height: 80px;
+	font-size: 48px;
+	font-weight: 600;
+	line-height: 56px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+	padding: 0 2rem;
+
+
 }
 
 
 .header_container h1 span{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
 	background-clip: text;
 	color: transparent;
+	width: 197px;
+	height: 36px;
+	border-radius: 8px;
+	margin-bottom: 2rem;
 }
 
 .header_container p{
-	font-size: 20px;
+	font-size: 14px;
 	line-height: 28px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1rem;
 }
 å
 .header_container p span{
-	color: #D73719;
+
 	width: 197px;
 	height: 36px;
 
@@ -99,9 +142,11 @@ border-radius: 8px;
 	width: 100%;
 	align-content: center;
 	flex-wrap: wrap;
-	gap: 1rem;
+	gap: 0 1rem;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 1rem;
+
 
 }
 
@@ -110,19 +155,16 @@ border-radius: 8px;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;	
-
-padding: 24px 32px;
-gap: 14px;
-
-
+	padding: 2rem;
+	margin-bottom: 1rem;
+	margin-top: 2rem;
 width: 392px;
 height: 76px;
 
 background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
 
-border: 1px solid rgba(255, 255, 255, 0.2);
-box-sizing: border-box;
 border-radius: 12px;
+shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 cursor: pointer;
 transition: all 0.3s ease;
 
