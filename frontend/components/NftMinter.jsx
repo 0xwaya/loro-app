@@ -1,15 +1,15 @@
 import styles from "../styles/NftMinter.module.css";
+import abi from "../pages/abi/nftAbi.json";
 import { Contract } from "alchemy-sdk";
 import { useState } from "react";
 import { useAccount, useSigner } from "wagmi";
-import abi from "../pages/abi/nftAbi.json";
 
 
 // NFT Minter component
 export default function NftMinter({
   contractAddress = "0x828E499F0C302D9492f5DA138Fa84279b8C895b2",
   tokenUri = "ipfs://bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
-  abi = "./abi/nftAbi.json",
+  abi = "../pages/abi/nftAbi.json",
   contentSrc = "https://nftstorage.link/ipfs/bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
   contentType = "image",
 }) {

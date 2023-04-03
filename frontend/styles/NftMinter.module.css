@@ -1,3 +1,4 @@
+
 .page_flexBox {
     display: flex;
     justify-content: center;
@@ -28,9 +29,9 @@
   }
   
   .nft_media_container {
+    display: flex;
+    justify-content: center;
     position: relative;
-    top: 0;
-    left: 0;
     border-radius: 20px;
     width: 50%;
     margin: auto;
@@ -38,8 +39,10 @@
   
   .nft_media {
     position: relative;
-    top: 0;
-    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 20px;
     z-index: 1;
     width: 350px;
@@ -78,8 +81,9 @@
   
   .nft_instructions_title {
     color: #949698;
-    font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 500;
+   
   }
   
   .text {
@@ -98,12 +102,11 @@
   
   .button {
     border-radius: 8px;
-    background-color: black;
+    background-color: #4e4e4e;
     padding: 8px 10px;
     font-weight: 700;
     margin-top: 1em;
     border: none;
-    color: white;
     width: 150px;
   }
   
@@ -135,35 +138,87 @@
     gap: 4px;
   }
   
-  @media screen and (max-width: 560px) {
-    .page_container {
-      display: block;
-    }
-  
+  @media (prefers-color-scheme: dark) {
     .page_flexBox {
-      display: block;
-      width: 500px;
+      border: 1px solid #cfd9f0;
     }
   
-    .nft_info {
-      width: 90%;
-      font-size: 24px;
-    }
-  
-    .nft_media_container {
-      width: 90%;
-      margin-bottom: 2em;
-    }
-  
-    .text {
-      font-size: 24px;
+    .nft_title {
+      color: #fff;
     }
   
     .nft_author {
-      font-size: 20px;
+      color: #fff;
     }
   
     .nft_instructions_title {
-      font-size: 20px;
+      color: #949698;
     }
+  
+    .text {
+      color: #fff;
+    }
+  
+    .button {
+      background-color: #fff;
+      color: black;
+    }
+  
+    .attribute_input_label {
+      color: #fff;
+    }
+    
+  }
+  @media (max-width: 768px) {
+    .page_flexBox {
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #cfd9f0;
+      max-width: 814px;
+      margin: auto;
+      padding: 20px;
+      margin-top: 3rem;
+      border-radius: 12px;
+    }
+  
+    .nft_media_container {
+      position: relative;
+      top: 0;
+      left: 0;
+      border-radius: 20px;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .nft_media {
+      position: relative;
+      border-radius: 10px;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }
+  
+    .nft_info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      color: #4e4e4e;
+      gap: 10px;  
+      width: 100%;
+      margin: auto;
+
+    }
+
+    .button {
+      border-radius: 8px;
+      background-color: #4e4e4e;
+      padding: 8px 10px;
+      font-weight: 700;
+      margin-top: 1em;
+      border: none;
+      width: 100%;
+    }
+
   }
