@@ -137,6 +137,11 @@
 	align-items: center;
 	justify-content: center;
 	margin-top: 1rem;
+	background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
+	background-clip: text;
+	color: transparent;
+	width: 197px;
+	height: 36px;
 }
 å
 .header_container p span{
@@ -151,64 +156,101 @@ border-radius: 6px;
 	margin-left: .3rem;
 }
 
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(25%, auto));
+	width: var(--max-width);
+	max-width: 100%;
+  }
+  
+  .card {
+	padding: 1rem 1.2rem;
+	border-radius: var(--border-radius);
+	background: rgba(var(--card-rgb), 0);
+	border: 1px solid rgba(var(--card-border-rgb), 0);
+	transition: background 200ms, border 200ms;
+  }
+  
+  .card span {
+	display: inline-block;
+	transition: transform 200ms;
+  }
+  
+  .card h2 {
+	font-weight: 600;
+	margin-bottom: 0.7rem;
+  }
+  
+  .card p {
+	margin: 0;
+	opacity: 0.6;
+	font-size: 0.9rem;
+	line-height: 1.5;
+	max-width: 30ch;
+  }
 
 .buttons_container{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-grow: 1;
-	width: 80%;
-	align-content: center;
-	flex-wrap: wrap;
-	padding: 0 1rem;
-
+	max-width: 100%;
 	gap: 0 1rem;
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 1rem;
-
-
+	padding: 0 1rem;
+	shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
 }
 
 .button{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;	
-	padding: 2rem;
-	margin-bottom: 1rem;
-	margin-top: 2rem;
-	margin-left: 1rem;
-	margin-right: 1rem;
-	width: 392px;
-	height: 76px;
-
+display: flex;
+flex-grow: 1;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 1.2rem 1.2rem;
+margin-bottom: 0rem;
+margin-top: 1rem;
+margin-left: 0 1rem;
+margin-right: 0 1rem;
+gap: 1rem;
+spacing: 1rem;
+width: 320px;
+height: 76px;
 background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
 border-radius: 12px;
 shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+depth: 0px 4px 4px rgba(0, 0, 0, 0.25);
+glow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 cursor: pointer;
 transition: all 0.3s ease;
-
-
 }
 
 .button:hover {
 	transform: translateY(-5px);
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-
 }
 
 .button p {
-
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin-bottom: 1rem;
+margin-top: 1rem;
+font-family: Roboto;
 font-style: normal;
 color: black;
-font-weight: 900;
-font-size: 30px;
-line-height: 28px;
+font-weight: 500;
+font-size: 24px;
+line-height: 32px;
 text-align: center;
-letter-spacing: 0.01em;
-
-
+letter-spacing: 0.02em;
+text-transform: uppercase;	
 }
+
 .footer{
 	display: flex;
 	flex-direction: column;
