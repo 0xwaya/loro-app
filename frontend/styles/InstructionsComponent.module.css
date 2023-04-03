@@ -1,16 +1,11 @@
 @media only screen and (max-width: 768px) {
 	.header_container h1{
 		font-size: 16px;
-		line-height:24px;
-		gap: 1rem;
-		display: flex;
-		flex-direction: center;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 1rem;
+		line-height: 24px;
+		gap: 0rem;
+		margin-bottom: 2rem;
 		margin-top: 1rem;
-		padding: 0 2rem;
-
+		padding: 1rem;
 	}
 	
 	.header_container p{
