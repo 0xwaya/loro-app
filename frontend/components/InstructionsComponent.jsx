@@ -50,6 +50,15 @@ export default function InstructionsComponent() {
             <p>BALANCE</p>
           </div>
         </a>
+        <a
+          target={"_blank"}
+          href={"./macawNest"}
+        >
+          <div className={styles.button}>
+            {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}  
+            <p>MACAW NEST</p>
+          </div>
+        </a>
       </div>
       <div className={styles.footer}>
         <div className={styles.icons_container}>
