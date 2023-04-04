@@ -3,66 +3,34 @@
 		flex-direction: column;
 	}
 	.navbar {
-		flex-direction: column;
+		flex-direction: relative;
 		align-items: center;
+		padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+		gap: 0.1rem;
+
 	}
 	.navbar .macaw_logo {
 		margin-bottom: 1rem;
-	}
-	.navbar .nav_links {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.navbar .nav_links a {
-		margin: 0.5rem 0;
-	}
-	.navbar .nav_links a:hover {
-		color: #f1f1f1;
-	}
-	.navbar .nav_links a.active {
-		color: #f1f1f1;
-	}
-	.navbar .nav_links a.active:hover {
-		color: #f1f1f1;
-	}
-	.navbar .nav_links a.active::after {
-		content: "";
-		display: block;
-		width: 100%;
-		height: 2px;
-		background-color: #f1f1f1;
-	}
-	.navbar .nav_links a::after {
-		content: "";
-		display: block;
-		width: 0%;
-		height: 2px;
-		background-color: #f1f1f1;
-		transition: 0.5s;
-	}
-	.navbar .nav_links a:hover::after {
-		width: 100%;
-	}
-	.navbar .nav_links a.active::after {
-		width: 100%;
+		margin-left: 1rem;
+		margin-top: 1rem;
+		margin-right: 1rem;
 	}
 }
 
 .navbar {
 	display: flex;
 	justify-content: space-between;
-	background-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
 	align-items: center;
+	background-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
 	width: 100%;
-	padding: 1.5rem 1.5rem 0.8rem 1.5rem;
-	gap: 1rem;
-	margin-bottom: .1rem;
+	padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+	gap: 0.1rem;
 
 }
 
 
 .macaw_logo{
-	width: 5rem;
+	width: 3.5rem;
 	cursor: pointer;
+
 }

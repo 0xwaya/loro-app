@@ -17,7 +17,7 @@ export default function InstructionsComponent() {
         <li>10,000 unique Macaws</li>
         <li>10% of all sales go to the Macaw Conservation Fund</li>
         <li>10% of all sales go to the NFT designers</li>
-        <li>10% of all sales will be injected into the Parrot Lottery</li>
+        <li>10% of all sales will be injected into the Loro-Lotto</li>
         <li>ParrotCoin lottery will be drawn every mint</li>
         <li>Special access to the Macaw Nest web3 incubator</li>
         </div>
