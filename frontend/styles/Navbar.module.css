@@ -10,7 +10,7 @@
 
 	}
 	.navbar .macaw_logo {
-		margin-bottom: 1rem;
+		margin-bottom: 0.1rem;
 		margin-left: 1rem;
 		margin-top: 1rem;
 		margin-right: 1rem;
@@ -23,14 +23,13 @@
 	align-items: center;
 	background-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
 	width: 100%;
-	padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+	padding: 0.5rem 1.5rem 0.1rem 1.5rem;
 	gap: 0.1rem;
-
 }
 
 
 .macaw_logo{
-	width: 3.5rem;
+	width: 3.1rem;
 	cursor: pointer;
 
 }
