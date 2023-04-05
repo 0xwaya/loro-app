@@ -4,9 +4,9 @@
 	"private": true,
 	"scripts": {
 		"build": "npx hardhat compile",
-		"deploy-testnet": "npx hardhat run ./scripts/Pandemonium_deploy.js --network OPTIMISM_GOERLI",
-		"deploy-pandemonium": "npx hardhat run ./scripts/Pandemonium_deploy.js  --network OPTIMISM_MAINNET",
-		"deploy-parrotg": "npx hardhat run ./scripts/ParrotCoin_deploy.js  --network OPTIMISM_GOERLI",
+		"deploy-testnet": "npx hardhat run ./scripts/Pandemonium_deploy.js --network goerli",
+		"deploy-pandemonium": "npx hardhat run ./scripts/Pandemonium_deploy.js  --network goerli",
+		"deploy-parrotg": "npx hardhat run ./scripts/ParrotCoin_deploy.js  --network goerli",
 		"node": "npx hardhat node",
 		"deploy-local": "npx hardhat run ./scripts/Pandemonium_deploy.js --network localhost"
 	},
