@@ -4,16 +4,11 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, useAccount, WagmiConfig } from "wagmi";
 import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  bsc,
   goerli,
   polygonMumbai,
   optimismGoerli,
   arbitrumGoerli,
-  bscTestnet,
+  avalancheFuji,
   
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
@@ -23,16 +18,11 @@ import MainLayout from "../layout/mainLayout";
 
 const { chains, provider } = configureChains(
   [
-    mainnet,
     goerli,
-    polygon,
     polygonMumbai,
-    optimism,
     optimismGoerli,
-    arbitrum,
     arbitrumGoerli,
-    bsc,
-    bscTestnet,
+    avalancheFuji,
     
   ],
   [alchemyProvider({ apiKey: process.env.ALCHEMY_API_KEY }), publicProvider()]

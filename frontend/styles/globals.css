@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;1,400&display=swap');
 
-@media (max-width: 768px) {
+@media () {
 	.container {
 		width: 100%;
 	}
@@ -17,15 +17,13 @@
 		width: 100%;
 	}
 }
-	
+
 
 html,
 body {
-	background: linear-gradient(to bottom, #000000, #1a1a1a);	
-	font-family: 'Rubik';
-	font-weight: normal;
+	background: linear-gradient(to right, #000000, #1a1a1a);
 	margin: 0;
-    padding: 0rem;
+    padding: 0 1rem, 0 1rem, 0 1rem, 0 1rem;
 
 }
 h1{
