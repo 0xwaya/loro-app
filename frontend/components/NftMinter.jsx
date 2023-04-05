@@ -77,8 +77,8 @@ export default function NftMinter({
           <hr className={styles.break} />
           <h3 className={styles.nft_instructions_title}>INSTRUCTIONS</h3>
           <p className={styles.text}>
-            This NFT is on OPTIMISM GOERLI. You’ll need some test GOERLI to mint the
-            NFT. <a href="https://faucet.goerli.mudit.blog/">Get some here</a>.
+            This NFT is on GOERLI. You’ll need some test GOERLI to mint the
+            NFT. <a href="https://goerli-faucet.pk910.de">Get some here</a>.
           </p>
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>

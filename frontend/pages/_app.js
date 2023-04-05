@@ -8,10 +8,13 @@ import {
   polygon,
   optimism,
   arbitrum,
+  bsc,
   goerli,
   polygonMumbai,
   optimismGoerli,
   arbitrumGoerli,
+  bscTestnet,
+  
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
@@ -28,12 +31,15 @@ const { chains, provider } = configureChains(
     optimismGoerli,
     arbitrum,
     arbitrumGoerli,
+    bsc,
+    bscTestnet,
+    
   ],
   [alchemyProvider({ apiKey: process.env.ALCHEMY_API_KEY }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "Pandemonium DApp",
+  appName: "Loro dApp",
   chains,
 });
 
@@ -53,17 +59,17 @@ function MyApp({ Component, pageProps }) {
   });
   return (
     <NextUIProvider>
-    <WagmiConfig client={wagmiClient}>
+     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider
         modalSize="compact"
         initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
         chains={chains}
       >
-      <MainLayout>
-      <Component {...pageProps} />
-      </MainLayout>
+       <MainLayout>
+          <Component {...pageProps} />
+       </MainLayout>
       </RainbowKitProvider>
-    </WagmiConfig>
+     </WagmiConfig>
     </NextUIProvider>
   );
 }
