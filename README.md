@@ -1,3 +1,4 @@
+<br>
 <p align='center'>
 <img alt="Logo" align="justify-center"  src="./frontend/public/loro-logo.png" width="20%" />
 </p><br>
