@@ -5,7 +5,13 @@ const nextConfig = {
 
 module.exports = {
 	env: {
+		API_URL: process.env.API_URL,
 	},
+	nerwork: {
+		goerli: {
+			accounts: [`${process.env.PRIVATE_KEY}`]
+		}	
+	}
 };
 
 module.exports = nextConfig;
