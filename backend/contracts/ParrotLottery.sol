@@ -7,7 +7,8 @@ import "../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "../node_modules/@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
 import "../node_modules/@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-abstract contract ParrotLottery is VRFConsumerBase, Ownable {
+contract ParrotLottery is IERC721A, VRFConsumerBase, Ownable {
+
     
     using EnumerableSet for EnumerableSet.AddressSet; 
 

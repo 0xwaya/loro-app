@@ -5,9 +5,10 @@ import { useAccount, useSigner } from "wagmi";
 import abi from "../pages/abi/nftAbi.json";
 
 
+
 // NFT Minter component
 export default function NftMinter({
-  contractAddress = "0x828E499F0C302D9492f5DA138Fa84279b8C895b2",
+  contractAddress = "0xc93cE0A6e36aeAf1B5164693DC8EC2617Aefe063",
   tokenUri = "ipfs://bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
   abi = "../pages/abi/nftAbi.json",
   contentSrc = "https://nftstorage.link/ipfs/bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
@@ -62,24 +63,31 @@ export default function NftMinter({
           <h1 className={styles.nft_title}>PANDEMONIUM SQUAD</h1>
           <h3 className={styles.nft_author}>By wayalabs.nft</h3>
           <p className={styles.text}>
-            The PANDEMONIUM SQUAD is a collection of 10,000 unique NFTs.
-
-            The NFTs holder will have unique perks and rewards, including access
-            to the private discord channel, and airdrops of the future
-            collections.
-
-            The NFTs are generated randomly, and the rarity is determined by the
-            number of traits that the NFT has. The more traits, the more rare the
-            NFT is.
-
-            
+            The PANDEMONIUM SQUAD is a collection in testnet of 100 unique MACAW NFTs.
+            The Mainnet collection will be 10,000 NFTs.<br/>
+            <br/>
+            The NFTs holder will have unique perks and rewards, a smart contract lottery
+            triggers on every mint, a random winner is selected using Chainlink VRF, the winner will get 100 PARROT coins.<br/>
+            <br/>
+            The NFTs are generated randomly in the nft engine, and the rarity is determined by the
+            number of traits that the NFT has.
           </p>
           <hr className={styles.break} />
           <h3 className={styles.nft_instructions_title}>INSTRUCTIONS</h3>
           <p className={styles.text}>
-            This NFT is on GOERLI. You’ll need some test GOERLI to mint the
+            This NFT is on GOERLI testnet. You’ll need some ETH_GOERLI to mint the
             NFT. <a href="https://goerli-faucet.pk910.de">Get some here</a>.
           </p>
+          <br/>
+          <h3 className={styles.nft_instructions_title}>CONTRACTS</h3>
+          <p className={styles.text}>
+            The PANDEMONIUM contract address is:<br/>
+            <b>{"0xc93cE0A6e36aeAf1B5164693DC8EC2617Aefe063"}</b>
+          </p>
+          <p className={styles.text}>
+            The PARROT Coin contract address is:<br/>
+            <b>{"0x3b3a9A66cD7f5f2dA202E973BB86976162f1C55D"}</b>
+          </p>        
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>
           ) : !txHash ? (
@@ -96,7 +104,7 @@ export default function NftMinter({
             <div>
               <h3 className={styles.attribute_input_label}>TX ADDRESS</h3>
               <a
-                href={`https://mumbai.polygonscan.com/tx/${txHash}`}
+                href={`https://goerli.etherscan.com/tx/${txHash}`}
                 target="_blank"
                 rel="noreferrer"
               >

@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"build": "npx hardhat compile",
-		"deploy-pandemonium": "npx hardhat run ./scripts/Pandemonium_deploy.js  --network goerli",
-		"deploy-parrotg": "npx hardhat run ./scripts/ParrotCoin_deploy.js  --network goerli",
+		"deploy-pandemonium-goerli": "npx hardhat run ./scripts/Pandemonium_deploy.js  --network goerli",
+		"deploy-parrot-goerli": "npx hardhat run ./scripts/ParrotCoin_deploy.js  --network goerli",
+		"deploy-lottery-goerli": "npx hardhat run ./scripts/ParrotLottery_deploy.js  --network goerli",
 		"node": "npx hardhat node",
 		"deploy-local": "npx hardhat run ./scripts/Pandemonium_deploy.js --network localhost"
 	},
@@ -13,6 +14,7 @@
 		"@chainlink/contracts": "^0.5.1",
 		"@openzeppelin/contracts": "^4.8.2",
 		"alchemy-sdk": "^2.8.0",
+		"babel": "^6.23.0",
 		"dotenv": "^16.0.2"
 	},
 	"devDependencies": {

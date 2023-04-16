@@ -11,16 +11,9 @@ export default function InstructionsComponent() {
     <div className={styles.container}>
       <header className={styles.header_container}>
         <h1>
-          pandemoniu<span>squad</span>
+          PANDEMONIUM<span>SQUAD</span>
         </h1>
-        <div className={styles.header_container + "li" }>
-        <li>10,000 unique Macaws</li>
-        <li>10% of all sales go to the Macaw Conservation Fund</li>
-        <li>10% of all sales go to the NFT designers</li>
-        <li>10% of all sales will be injected into the Loro-Lotto</li>
-        <li>ParrotCoin lottery will be drawn every mint</li>
-        <li>Special access to the Macaw Nest web3 incubator</li>
-        </div>
+      
       </header>
 
       <div className={styles.buttons_container}>
@@ -40,15 +33,6 @@ export default function InstructionsComponent() {
           <div className={styles.button}>
             {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}  
             <p>BALANCE</p>
-          </div>
-        </a>
-        <a
-          target={"_blank"}
-          href={"./macawNest"}
-        >
-          <div className={styles.button}>
-            {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}  
-            <p>MACAW NEST</p>
           </div>
         </a>
       </div>

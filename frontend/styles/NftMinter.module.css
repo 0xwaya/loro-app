@@ -1,177 +1,193 @@
-
 .page_flexBox {
-    display: flex;
-    justify-content: center;
-    border: 1px solid #cfd9f0;
-    max-width: 814px;
-    margin: auto;
-    padding: 20px;
-    margin-top: 3rem;
-    border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #cfd9f0;
+  max-width: 814px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 3rem;
+  border-radius: 12px;
+  shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  }
+}
+
+.page_container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  margin-top: 1rem;
+  border-radius: 6px;
+
+}
+
+.page_header {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.nft_media_container {
+  position: relative;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 2em;
+}
+
+.nft_media {
+  position: relative;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  z-index: 1;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+
+}
+
+.nft_info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  margin: auto;
+
+}
+
+.nft_title {
+  color: white;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 0.3rem;
+	display: flex;
+	flex-direction: relative;
+	align-items: center;
+	background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
+	background-clip: text;
+	color: transparent;
+	border-radius: 6px;
+	margin-bottom: .1rem;
+}
+
+
+.nft_author {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+
+
+}
+
+.nft_instructions_title {
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.text {
+  font-size: 16px;
+  color: white;
+  font-weight: 300;
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+
+
+}
+
+.break {
+  margin-block: 1em;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
+  margin-left: 0 1rem;
+  margin-right: 0 1rem;
+  gap: 1rem;
+  spacing: 1rem;
+  font-size: 2rem;
+  background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
+  border-radius: 22px;
+  shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
   
+  }
+
+.transaction_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+}
+.tx_hash {
+  color: rgb(0, 98, 255);
+}
+
+.isMinting {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.attribute_input_label {
+  font-weight: 700;
+  font-size: 14px;
+  color: #4e4e4e;
+  margin-block: 0.5em;
+}
+
+.address_container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media screen and (max-width: 560px) {
   .page_container {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    width: 100%;
-    margin: auto;
-    padding: 20px;
-    margin-top: 1rem;
-    border-radius: 6px;
+    display: block;
+  }
 
+  .page_flexBox {
+    display: block;
+    width: 500px;
   }
-  
-  .page_header {
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  
-  .nft_media_container {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    border-radius: 20px;
-    width: 50%;
-    margin: auto;
-  }
-  
-  .nft_media {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    border-radius: 20px;
-    z-index: 1;
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-
-  }
-  
   .nft_info {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: #4e4e4e;
-    flex-direction: column;
-    gap: 10px;
-    width: 50%;
-    margin: auto;
-
-  }
-  
-  .nft_title {
+    width: 90%;
     font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-  
-
   }
-  
-  .nft_author {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 0.3rem;
 
+  .nft_media_container {
+    width: 90%;
+    margin-bottom: 2em;
+  }
 
-  }
-  
-  .nft_instructions_title {
-    color: #949698;
-    font-size: 16px;
-    font-weight: 500;
-   
-  }
-  
   .text {
-    font-size: 16px;
-    color: #4e4e4e;
-    font-weight: 300;
-    margin-bottom: 0.3rem;
-    line-height: 1.5;
+    font-size: 24px;
+  }
 
+  .nft_author {
+    font-size: 20px;
+  }
 
+  .nft_instructions_title {
+    font-size: 20px;
   }
-  
-  .break {
-    margin-block: 1em;
-  }
-  
-  .button {
-    border-radius: 8px;
-    background-color: #4e4e4e;
-    padding: 8px 10px;
-    font-weight: 700;
-    margin-top: 1em;
-    border: none;
-    width: 150px;
-  }
-  
-  .transaction_box {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    column-gap: 5px;
-  }
-  .tx_hash {
-    color: rgb(0, 98, 255);
-  }
-  
-  .isMinting {
-    background-color: lightgray;
-    cursor: not-allowed;
-  }
-  
-  .attribute_input_label {
-    font-weight: 700;
-    font-size: 14px;
-    color: #4e4e4e;
-    margin-block: 0.5em;
-  }
-  
-  .address_container {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .page_flexBox {
-      border: 1px solid #cfd9f0;
-    }
-  
-    .nft_title {
-      color: #fff;
-    }
-  
-    .nft_author {
-      color: #fff;
-    }
-  
-    .nft_instructions_title {
-      color: #949698;
-    }
-  
-    .text {
-      color: #fff;
-    }
-  
-    .button {
-      background-color: #fff;
-      color: black;
-    }
-  
-    .attribute_input_label {
-      color: #fff;
-    }
-    
-  }
+}
   @media (max-width: 768px) {
     .page_flexBox {
-      flex-direction: column;
       align-items: center;
       border: 1px solid #cfd9f0;
       max-width: 814px;
@@ -182,21 +198,17 @@
     }
   
     .nft_media_container {
-      position: relative;
-      top: 0;
-      left: 0;
+  
       border-radius: 20px;
       width: 100%;
       height: 100%;
     }
   
     .nft_media {
-      position: relative;
       border-radius: 10px;
       z-index: 1;
       width: 100%;
       height: 100%;
-      object-fit: cover;
 
     }
   

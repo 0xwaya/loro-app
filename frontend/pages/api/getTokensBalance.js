@@ -37,11 +37,11 @@ export default async function handler(req, res) {
     // create an object representing the LORO token balance
     const loroBalanceObject = {
       name: "ParrotCoin", // LORO token name
-      symbol: "LORO", // LORO token symbol
+      symbol: "PARROT", // LORO token symbol
       logo: "https://github.com/0xwaya/loro-app/blob/main/frontend/public/token-logo.png?raw=true",
       decimals: 18, // LORO token has 18 decimals
       balance: parsedLoroBalance.toFixed(2),
-      address: "0x74a26954883584a260460711A3185F4095C03494",  // LORO token address
+      address: "0x3b3a9A66cD7f5f2dA202E973BB86976162f1C55D",  // PARROT COIN ADDRESS
     };
  
 
