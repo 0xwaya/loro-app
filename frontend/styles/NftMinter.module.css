@@ -129,24 +129,37 @@
   gap: 4px;
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 521px) {
   .page_container {
     display: block;
-  }
+    width: 100%;
+    padding: 1rem, 1rem, 1rem, 1rem;
+    margin-top: 0 1rem;
+    }
 
   .page_flexBox {
     display: block;
-    width: 500px;
+    width: 372px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 12px;
+
   }
 
   .nft_info {
-    width: 90%;
+    width: 100%;
     font-size: 24px;
   }
 
 
   .text {
-    font-size: 24px;
+    display: flex;
+    justify-content: relative;
+    display: block;
+
+    font-size: 18px;
   }
 
   .nft_author {
@@ -154,7 +167,9 @@
   }
 
   .nft_instructions_title {
-    font-size: 20px;
+    display: flex;
+    justify-content: relative;
+    font-size: 24px;
   }
 }
   @media (max-width: 768px) {
@@ -164,6 +179,7 @@
       padding: 20px;
       margin-top: 3rem;
       border-radius: 12px;
+      
     }
   
   
