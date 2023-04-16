@@ -2,6 +2,7 @@ import styles from "../styles/InstructionsComponent.module.css";
 import Router, { useRouter } from "next/router";
 
 
+
 export default function InstructionsComponent() {
 
   const router = useRouter();
@@ -13,9 +14,8 @@ export default function InstructionsComponent() {
         <h1>
           PANDEMONIUM<span>SQUAD</span>
         </h1>
-      
       </header>
-
+    
       <div className={styles.buttons_container}>
         <a
           target={"_blank"}
