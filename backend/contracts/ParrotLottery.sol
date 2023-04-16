@@ -42,7 +42,7 @@ abstract contract ParrotLottery is VRFConsumerBase, Ownable {
     /**
      * Callback function used by VRF Coordinator
      */
-    function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
+    function fulfillRandomness (uint256 randomness) internal {
         setEntrants();
         winner = entrants.values()[randomness % entrants.values().length];
         IERC20(coinAddress).transfer(address(winner), winningAmount);

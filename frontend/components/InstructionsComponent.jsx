@@ -11,7 +11,7 @@ export default function InstructionsComponent() {
     <div className={styles.container}>
       <header className={styles.header_container}>
         <h1>
-          pandemonium<span>squad</span>
+          pandemoniu<span>squad</span>
         </h1>
         <div className={styles.header_container + "li" }>
         <li>10,000 unique Macaws</li>

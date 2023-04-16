@@ -9,13 +9,13 @@ import "../node_modules/@openzeppelin/contracts/utils/cryptography/draft-EIP712.
 import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Votes.sol";
 import "../node_modules/@openzeppelin/contracts/utils/Counters.sol";
 
-contract Macaw is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl, EIP712, ERC721Votes {
+contract Pandemonium is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl, EIP712, ERC721Votes {
     using Counters for Counters.Counter;
 
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("Pandemonium Squad", "MACAW") EIP712("Macaw", "1") {
+    constructor() ERC721("Pandemonium Squad", "MACAW") EIP712("Lotto", "1") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
     }

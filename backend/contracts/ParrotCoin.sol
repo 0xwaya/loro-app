@@ -13,7 +13,7 @@ mapping(address => mapping(address => uint256)) private allowed;
 
 string public name = "ParrotCoin"; // Set the name for display purposes
 uint8 public immutable decimals = 18; // 18 is the most common number of decimal places
-string public symbol = "LORO"; // Set the symbol for display purposes
+string public symbol = "PARROT"; // Set the symbol for display purposes
 uint256 public totalSupply = 4200000 * 10 ** 18; // 4.2 million tokens  (4.2 * 10^6)
 
 

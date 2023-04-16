@@ -1,8 +1,8 @@
 import styles from "../styles/NftMinter.module.css";
-import abi from "../pages/abi/nftAbi.json";
 import { Contract } from "alchemy-sdk";
 import { useState } from "react";
 import { useAccount, useSigner } from "wagmi";
+import abi from "../pages/abi/nftAbi.json";
 
 
 // NFT Minter component
