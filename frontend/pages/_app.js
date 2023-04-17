@@ -16,6 +16,8 @@ import { publicProvider } from "wagmi/providers/public";
 import { NextUIProvider } from '@nextui-org/react';
 import MainLayout from "../layout/mainLayout";
 
+
+
 const { chains, provider } = configureChains(
   [
     goerli,
@@ -47,10 +49,11 @@ function MyApp({ Component, pageProps }) {
       if (!isReconnected) router.reload();
     },
   });
+
   return (
     <NextUIProvider>
-     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider
+      <WagmiConfig client={wagmiClient}>
+       <RainbowKitProvider
         modalSize="compact"
         initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
         chains={chains}

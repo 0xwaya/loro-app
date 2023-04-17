@@ -129,12 +129,15 @@
   gap: 4px;
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 421px) {
   .page_container {
     display: block;
     width: 100%;
     padding: 1rem, 1rem, 1rem, 1rem;
     margin-top: 0 1rem;
+    margin-bottom: 0 1rem;
+    margin-left: 0 1rem;
+    margin-right: 0 1rem;
     }
 
   .page_flexBox {
@@ -144,13 +147,15 @@
     padding: 20px;
     margin-top: 3rem;
     margin-bottom: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border-radius: 12px;
 
   }
 
   .nft_info {
     width: 100%;
-    font-size: 24px;
+    font-size: 18px;
   }
 
 

@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       <Head />
       <main className={styles.main}>
-       <InstructionsComponent />
+       <InstructionsComponent></InstructionsComponent>
        </main>
     </div>
   );
