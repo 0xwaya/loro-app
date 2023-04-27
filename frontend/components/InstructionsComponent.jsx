@@ -15,7 +15,7 @@ export default function InstructionsComponent() {
           <span>PANDEMONIUM</span>
         </h1>
         <p>
-          The Macaw NFT Collection That Gives Back
+          The Macaw Collection That Gives Back
         </p>
       </header>
 
