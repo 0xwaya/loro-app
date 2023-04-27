@@ -1,34 +1,31 @@
 .page_flexBox {
   display: flex;
-  flex-direction: center;
-  align-items: center;
   justify-content: center;
-  border: 1px solid #cfd9f0;
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  background-color: #1a1a1a;
+  align-items: center;
+  flex-direction: center;
+  border: 2px solid #cfd9f0;
+  max-width: 724px;
+  padding: 2px,  2px,  2px,  2px;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  border-radius: 24px;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  border-radius: 13px;
+
 }
 
 .page_container {
   display: flex;
-  align-items: relative;
   justify-content: center;
-  flex-direction: relative;
-  gap: 32px;
-  width: 100%;
+  justify-items: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 321px;
+  gap: 1px;
+  width: 90%;
   padding: 0 1rem, 0 1rem, 0 1rem, 0 1rem;
-  margin-top: 0 1rem;
-  margin-bottom: 0 1rem;
-  margin-left: 0 1rem;
-  margin-right: 0 1rem;
-  background-color: #1a1a1a;
-  border-radius: 24px;
+
 
 }
 

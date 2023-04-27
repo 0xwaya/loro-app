@@ -31,7 +31,7 @@ export default function NftMinter({
     try {
       // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);
-     // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
+      // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
       const mintTx = await nftContract.safeMint(address, tokenUri);
       // Set the transaction hash in state to display in the UI
       setTxHash(mintTx?.hash);
@@ -60,15 +60,15 @@ export default function NftMinter({
         </div>
 
         <div className={styles.nft_info}>
-          <h1 className={styles.nft_title}>PANDEMONIUM SQUAD</h1>
+          <h1 className={styles.nft_title}>PANDEMONIUM</h1>
           <h3 className={styles.nft_author}>By wayalabs.nft</h3>
           <p className={styles.text}>
             The PANDEMONIUM SQUAD is a collection in testnet of 100 unique MACAW NFTs.
-            The Mainnet collection will be 10,000 NFTs.<br/>
-            <br/>
+            The Mainnet collection will be 10,000 NFTs.<br />
+            <br />
             The NFTs holder will have unique perks and rewards, a smart contract lottery
-            triggers on every mint, a random winner is selected using Chainlink VRF, the winner will get 100 PARROT coins.<br/>
-            <br/>
+            triggers on every mint, a random winner is selected using Chainlink VRF, the winner will get 100 PARROT coins.<br />
+            <br />
             The NFTs are generated randomly in the nft engine, and the rarity is determined by the
             number of traits that the NFT has.
           </p>
@@ -78,23 +78,22 @@ export default function NftMinter({
             This NFT is on GOERLI testnet. You’ll need some ETH_GOERLI to mint the
             NFT. <a href="https://goerli-faucet.pk910.de">Get some here</a>.
           </p>
-          <br/>
+          <br />
           <h3 className={styles.nft_instructions_title}>CONTRACTS</h3>
           <p className={styles.text}>
-            The PANDEMONIUM contract address is:<br/>
+            The PANDEMONIUM contract address is:<br />
             <b>{"0xc93cE0A6e36aeAf1B5164693DC8EC2617Aefe063"}</b>
           </p>
           <p className={styles.text}>
-            The PARROT Coin contract address is:<br/>
+            The PARROT Coin contract address is:<br />
             <b>{"0x3b3a9A66cD7f5f2dA202E973BB86976162f1C55D"}</b>
-          </p>        
+          </p>
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>
           ) : !txHash ? (
             <button
-              className={`${styles.button} ${
-                isMinting && `${styles.isMinting}`
-              }`}
+              className={`${styles.button} ${isMinting && `${styles.isMinting}`
+                }`}
               disabled={isMinting}
               onClick={async () => await mintNFT()}
             >
