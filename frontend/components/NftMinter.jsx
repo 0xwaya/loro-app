@@ -2,18 +2,16 @@ import styles from "../styles/NftMinter.module.css";
 import { Contract } from "alchemy-sdk";
 import { useState } from "react";
 import { useAccount, useSigner } from "wagmi";
-import abi from "../pages/abi/nftAbi.json";
 
 
-
-// NFT Minter component
 export default function NftMinter({
-  contractAddress = "0xc93cE0A6e36aeAf1B5164693DC8EC2617Aefe063",
-  tokenUri = "ipfs://bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
-  abi = "../pages/abi/nftAbi.json",
-  contentSrc = "https://nftstorage.link/ipfs/bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
-  contentType = "image",
+  contractAddress,
+  tokenUri,
+  abi,
+  contentSrc,
+  contentType,
 }) {
+  // State hook to track the NFT contract ABI
   const [nftAbi, setNftAbi] = useState(abi);
   // Get the user's wallet address and status of their connection to it
   const { address, isDisconnected } = useAccount();
@@ -23,15 +21,17 @@ export default function NftMinter({
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
 
+
   // Function to mint a new NFT
   const mintNFT = async () => {
+    // Log the token URI, contract address, and user's address to the console
     console.log(tokenUri, contractAddress, address);
     // Create a new instance of the NFT contract using the contract address and ABI
-    const nftContract = new Contract(contractAddress, abi, signer);
+    const nftContract = new Contract(contractAddress, nftAbi, signer);
     try {
       // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);
-      // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
+     // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
       const mintTx = await nftContract.safeMint(address, tokenUri);
       // Set the transaction hash in state to display in the UI
       setTxHash(mintTx?.hash);

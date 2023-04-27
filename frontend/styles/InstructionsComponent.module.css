@@ -147,16 +147,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 24px;
-	line-height: 32px;
+	font-size: 18px;
 	font-weight: 400;
-	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
-	background-clip: text;
-	color: transparent;
-	width: 197px;
-	height: 36px;
-}
+	height: 100%;
+	width: 100%;}
 å
 .header_container p span{
 
@@ -166,11 +161,30 @@
 	padding: .5rem .5rem .5rem .5rem;
 }
 
+.story_container p{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: 400;
+	max-width: 813px;
+	width: 80%;
+	font-size: 16px;
+	line-height: 23px;
+	margin-right: 2.8rem;
+	margin: 0 auto;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	border-radius: 13px;
+	border: 2px solid #fafafa;
+	padding: 1rem 1rem 1rem 1rem;
+	shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 .buttons_container{
 	display: flex;
 	flex-direction: row;
 	flex-grow: 1;
-	max-width: 100%;
+	max-width: 80%;
 	gap: 0 1rem;
 	align-items: center;
 	justify-content: center;
@@ -183,13 +197,12 @@
 .button{
 display: flex;
 flex-direction: column;
-padding: 1.2rem 1.2rem 1.2rem 1.2rem;
-margin-bottom: 2rem;
-margin-top: 2rem;
-margin-left: 0 1rem;
-margin-right: 0 1rem;
-gap: 1rem;
-spacing: 1rem;
+align-items: center;
+justify-content: center;
+padding: 2rem, 2rem, 2rem, 2rem;
+margin-bottom: 1rem;
+margin-left: 0 4rem;
+margin-right: 0 4rem;
 width: 320px;
 height: 76px;
 background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));

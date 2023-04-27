@@ -8,14 +8,25 @@ export default function InstructionsComponent() {
   const router = useRouter();
 
   return (
-       
+
     <div className={styles.container}>
       <header className={styles.header_container}>
         <h1>
-          PANDEMONIUM<span>SQUAD</span>
+          <span>PANDEMONIUM</span>
         </h1>
+        <p>
+          The Macaw NFT Collection That Gives Back
+        </p>
       </header>
-    
+
+      <div className={styles.story_container}>
+        <div className={styles.story_container}>
+          <p>
+            Once upon a time, in a lush, vibrant rainforest, there lived a spectacular pack of screeching macaws called the Pandemonium. Each macaw, with its unique and striking colors, soared through the skies, captivating the hearts of all who encountered them. Little did anyone know, these macaws held the power to not only captivate but also bring people together for a greater purpose.
+          </p>
+        </div>
+      </div>
+
       <div className={styles.buttons_container}>
         <a
           target={"_blank"}
@@ -31,7 +42,7 @@ export default function InstructionsComponent() {
           href={"./parrotBalance"}
         >
           <div className={styles.button}>
-            {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}  
+            {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
             <p>BALANCE</p>
           </div>
         </a>
@@ -54,6 +65,6 @@ export default function InstructionsComponent() {
         </div>
         <p>built by 0xwaya powered by VERCEL <br></br>EXPERIMENTAL USE ONLY!!<br></br>© 2023 wayalabs.nft</p>
       </div>
-    </div>
+    </div >
   );
 }

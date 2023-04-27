@@ -69,11 +69,19 @@
 }
 
 .text {
+  display: flex;
+  justify-content: relative;
   font-size: 16px;
   color: white;
   font-weight: 333;
+
   margin-bottom: 0.3rem;
+  margin-top: 0.3rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   line-height: 1.5;
+
+
 
 }
 
