@@ -2,7 +2,6 @@ import styles from "../styles/InstructionsComponent.module.css";
 import Router, { useRouter } from "next/router";
 
 
-
 export default function InstructionsComponent() {
 
   const router = useRouter();
@@ -22,8 +21,7 @@ export default function InstructionsComponent() {
       <div className={styles.story_container}>
         <div className={styles.story_container}>
           <p>
-            Once upon a time, in a lush, vibrant rainforest, there lived a spectacular pack of screeching macaws called the Pandemonium. Each macaw, with its unique and striking colors, soared through the skies, captivating the hearts of all who encountered them. Little did anyone know, these macaws held the power to not only captivate but also bring people together for a greater purpose.
-          </p>
+            In a colorful rainforest, some cool and savvy macaws invented the Loro coin to unite the animals for reforestation and to allow them to buy stuff with their unique NFTs. They became the Robin Hoods of the jungle, with a currency not backed by gold, but by feathers!          </p>
         </div>
       </div>
 
@@ -39,11 +37,11 @@ export default function InstructionsComponent() {
         </a>
         <a
           target={"_blank"}
-          href={"./parrotBalance"}
+          href={"./swapWidget"}
         >
           <div className={styles.button}>
             {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
-            <p>BALANCE</p>
+            <p>SWAP</p>
           </div>
         </a>
       </div>

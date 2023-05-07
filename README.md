@@ -4,7 +4,7 @@
 </p><br>
 
 
-# Loro DApp - Pandemonium Squad 
+# Loro DApp - Pandemonium 
 
 
 -   [User Guide](https://facebook.github.io/create-react-app/) – How to develop apps bootstrapped with Create React App.
