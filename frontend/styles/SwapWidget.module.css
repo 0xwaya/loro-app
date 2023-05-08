@@ -1,0 +1,102 @@
+@media only screen and (max-width: 768px) {
+	.container{
+		display: flex;
+		flex-direction: center;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+        height: 100%;
+		Margin-top: 4rem;
+
+
+	}
+
+    .container h1{
+        font-size: 1rem;
+        margin-bottom: 1rem;
+
+    }
+
+    .container p{
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .container a{
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .container img{
+      
+    }
+
+    .container .btn{
+      
+    }
+
+    .container .btn:hover{
+      
+    }
+
+    .container .btn:active{
+      
+    }
+
+    .container .btn:focus{
+      
+    }
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.container h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+.container p{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.container a{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.container img{
+}
+
+.container .btn{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.container .btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.container .btn:active{
+    background-color: #000;
+    color: #fff;
+}
+
+.container .btn:focus{
+    background-color: #000;
+    color: #fff;
+}
+
+

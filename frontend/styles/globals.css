@@ -14,16 +14,16 @@
 	}
 
 	.container .right .content {
-		width: 100%;
+
 	}
 }
 
 
 html,
 body {
-	background: linear-gradient(to right, #000000, #1a1a1a);
+	background: linear-gradient(to bottom, #000000, #1a1a1a);
 	margin: 0;
-    padding: 0 1rem, 0 1rem, 0 1rem, 0 1rem;
+    padding: 1rem, 1rem, 1rem, 1rem;
 
 }
 h1{
