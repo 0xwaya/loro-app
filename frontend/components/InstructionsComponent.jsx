@@ -13,9 +13,6 @@ export default function InstructionsComponent() {
         <h1>
           <span>PANDEMONIUM</span>
         </h1>
-        <p>
-          The Macaw Collection That Gives Back
-        </p>
       </header>
 
       <div className={styles.story_container}>
@@ -61,7 +58,7 @@ export default function InstructionsComponent() {
             </a>
           </div>
         </div>
-        <p>built by 0xwaya powered by VERCEL <br></br>EXPERIMENTAL USE ONLY!!<br></br>© 2023 wayalabs.nft</p>
+        <p>powered by Alchemy <br></br>EXPERIMENTAL USE ONLY!!<br></br>© 2023 wayalabs.nft</p>
       </div>
     </div >
   );
