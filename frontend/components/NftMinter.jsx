@@ -11,7 +11,6 @@ export default function NftMinter({
   contentSrc,
   contentType,
 }) {
-  // State hook to track the NFT contract ABI
   const [nftAbi, setNftAbi] = useState(abi);
   // Get the user's wallet address and status of their connection to it
   const { address, isDisconnected } = useAccount();
@@ -21,13 +20,11 @@ export default function NftMinter({
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
 
-
   // Function to mint a new NFT
   const mintNFT = async () => {
-    // Log the token URI, contract address, and user's address to the console
     console.log(tokenUri, contractAddress, address);
     // Create a new instance of the NFT contract using the contract address and ABI
-    const nftContract = new Contract(contractAddress, nftAbi, signer);
+    const nftContract = new Contract(contractAddress, abi, signer);
     try {
       // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);
@@ -60,33 +57,26 @@ export default function NftMinter({
         </div>
 
         <div className={styles.nft_info}>
-          <h1 className={styles.nft_title}>PANDEMONIUM</h1>
+          <h1 className={styles.nft_title}>PANDEMONIUM SQUAD</h1>
           <h3 className={styles.nft_author}>By wayalabs.nft</h3>
           <p className={styles.text}>
-            The PANDEMONIUM SQUAD is a collection in testnet of 100 unique MACAW NFTs.
-            The Mainnet collection will be 10,000 NFTs.<br />
-            <br />
-            The NFTs holder will have unique perks and rewards, a smart contract lottery
-            triggers on every mint, a random winner is selected using Chainlink VRF, the winner will get 100 PARROT coins.<br />
-            <br />
-            The NFTs are generated randomly in the nft engine, and the rarity is determined by the
-            number of traits that the NFT has.
+            The PANDEMONIUM SQUAD is a collection of 10,000 unique NFTs.
+
+            The NFTs holder will have unique perks and rewards, including access
+            to the private discord channel, and airdrops of the future
+            collections.
+
+            The NFTs are generated randomly, and the rarity is determined by the
+            number of traits that the NFT has. The more traits, the more rare the
+            NFT is.
+
+
           </p>
           <hr className={styles.break} />
           <h3 className={styles.nft_instructions_title}>INSTRUCTIONS</h3>
           <p className={styles.text}>
-            This NFT is on GOERLI testnet. You’ll need some ETH_GOERLI to mint the
-            NFT. <a href="https://goerli-faucet.pk910.de">Get some here</a>.
-          </p>
-          <br />
-          <h3 className={styles.nft_instructions_title}>CONTRACTS</h3>
-          <p className={styles.text}>
-            The PANDEMONIUM contract address is:<br />
-            <b>{"0xc93cE0A6e36aeAf1B5164693DC8EC2617Aefe063"}</b>
-          </p>
-          <p className={styles.text}>
-            The PARROT Coin contract address is:<br />
-            <b>{"0x3b3a9A66cD7f5f2dA202E973BB86976162f1C55D"}</b>
+            This NFT is on OPTIMISM GOERLI. You’ll need some test GOERLI to mint the
+            NFT. <a href="https://faucet.goerli.mudit.blog/">Get some here</a>.
           </p>
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>

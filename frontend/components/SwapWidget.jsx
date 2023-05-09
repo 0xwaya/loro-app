@@ -1,8 +1,15 @@
 import { SwapWidget } from '@uniswap/widgets'
+import Head from 'next/head';
+import styles from '../styles/SwapWidget.module.css';
 import '@uniswap/widgets/fonts.css'
 
-function App() {
-    <div className="Uniswap">
-        <SwapWidget />
-    </div>
+export default function SwapWidget() {
+    return (
+        <div className={styles.container}>
+            <Head />
+            <main className="Uniswap">
+                <SwapWidget />
+            </main>
+        </div>
+    );
 }

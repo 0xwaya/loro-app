@@ -28,7 +28,6 @@ export default function InstructionsComponent() {
           href={"./minter"}
         >
           <div className={styles.button}>
-            {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
             <p>MINT</p>
           </div>
         </a>
@@ -37,7 +36,6 @@ export default function InstructionsComponent() {
           href={"./swapWidget"}
         >
           <div className={styles.button}>
-            {/* <img src="https://static.alchemyapi.io/images/cw3d/Icon%20Medium/lightning-square-contained-m.svg" width={"20px"} height={"20px"} /> */}
             <p>SWAP</p>
           </div>
         </a>
