@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <main className="Uniswap">
-        <SwapWidget> </SwapWidget>
+        <SwapWidget />
       </main>
     </div>
   );

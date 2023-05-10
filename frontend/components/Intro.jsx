@@ -1,8 +1,8 @@
-import styles from "../styles/InstructionsComponent.module.css";
+import styles from "../styles/Intro.module.css";
 import Router, { useRouter } from "next/router";
 
 
-export default function InstructionsComponent() {
+export default function Intro() {
 
   const router = useRouter();
 
@@ -18,28 +18,22 @@ export default function InstructionsComponent() {
       <div className={styles.story_container}>
         <div className={styles.story_container}>
           <p>
-            In a colorful rainforest, some cool and savvy macaws invented the Loro coin to unite the animals for reforestation and to allow them to buy stuff with their unique NFTs. They became the Robin Hoods of the jungle, with a currency not backed by gold, but by feathers!          </p>
+            When macaws screech, the jungle trembles!
+          </p>
         </div>
       </div>
 
       <div className={styles.buttons_container}>
         <a
           target={"_blank"}
-          href={"./minter"}
+          href={"./"}
         >
           <div className={styles.button}>
-            <p>MINT</p>
-          </div>
-        </a>
-        <a
-          target={"_blank"}
-          href={"./swapWidget"}
-        >
-          <div className={styles.button}>
-            <p>SWAP</p>
+            <p>ENTER</p>
           </div>
         </a>
       </div>
+      <br></br>
       <div className={styles.footer}>
         <div className={styles.icons_container}>
           <div>
@@ -56,8 +50,16 @@ export default function InstructionsComponent() {
             </a>
           </div>
         </div>
-        <p>powered by Alchemy <br></br>EXPERIMENTAL USE ONLY!!<br></br>© 2023 wayalabs.nft</p>
+        <a href="https://alchemy.com/?a=create-web3-dapp" target={"_blank"}>
+          <img
+            id="badge-button"
+            style={{ width: "121px", height: "27px" }}
+            src="https://static.alchemyapi.io/images/marketing/badgeLight.png"
+            alt="Alchemy Supercharged"
+          />
+        </a>
+        <p>EXPERIMENTAL USE ONLY!!<br></br>© 2023 wayalabs.nft</p>
       </div>
-    </div >
+    </div>
   );
 }

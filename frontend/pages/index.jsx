@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import InstructionsComponent from "../components/InstructionsComponent";
+import InstructionsComponent from "../components/Intro";
+import Intro from "../components/Intro";
 
 
 
@@ -10,7 +11,7 @@ export default function Home() {
         <div>
             <Head />
             <main className={styles.main}>
-                <InstructionsComponent></InstructionsComponent>
+                <Intro></Intro>
             </main>
         </div>
     );
