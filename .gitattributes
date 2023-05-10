@@ -1,4 +1,4 @@
 *.sol linguist-language=Solidity
 *.js linguist-language=js
 *.css   linguist-language=css
-
+*.jsx   linguist-language=jsx
