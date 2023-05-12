@@ -1,9 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import InstructionsComponent from "../components/Intro";
 import Intro from "../components/Intro";
-
 
 
 export default function Home() {
@@ -16,3 +14,5 @@ export default function Home() {
         </div>
     );
 }
+
+

@@ -1,0 +1,20 @@
+import { QueryClient, QueryClientProvider, useQueryClient } from "react-query";
+import { WagmiConfig } from "wagmi";
+
+const queryClient = new QueryClient();
+
+function MyComponent() {
+  const queryClient = useQueryClient();
+  // other logic here
+  return (/*jsx*/);
+}
+
+function MyApp() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <WagmiConfig queryClient={queryClient}>
+        <MyComponent />
+      </WagmiConfig>
+    </QueryClientProvider>
+  );
+}

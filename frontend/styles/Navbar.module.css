@@ -1,21 +1,32 @@
-@media (max-width: 768px) {
+@media (max-width: 728px) {
 	.container {
 		flex-direction: relative;
+		justify-content: space-between;
+		align-items: center;
+		
+
 	}
 	.navbar {
-		gap: 0.5rem;
+		gap: 0.1rem;
 
 	}
 	.navbar .macaw_logo {
-		width: 2.5rem;
+		width: 3rem;
 	}
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+	gap: 0.5rem;
 }
 
 .navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
 	width: 100%;
 	padding: 0.5rem 1.5rem 0.5rem 1.5rem;
 	gap: 0.5rem;
@@ -23,7 +34,7 @@
 
 
 .macaw_logo{
-	width: 3rem;
+	width: 4rem;
 	cursor: pointer;
 	margin-bottom: 0.5rem;
 	margin-left: 1rem;

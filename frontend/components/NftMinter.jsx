@@ -1,7 +1,7 @@
 import styles from "../styles/NftMinter.module.css";
 import { Contract } from "alchemy-sdk";
 import { useState } from "react";
-import { useAccount, useSigner } from "wagmi";
+import { useAccount, useWalletClient } from "wagmi";
 
 
 export default function NftMinter({
@@ -15,7 +15,7 @@ export default function NftMinter({
   // Get the user's wallet address and status of their connection to it
   const { address, isDisconnected } = useAccount();
   // Get the signer instance for the connected wallet
-  const { data: signer } = useSigner();
+  const { data: walletClient } = useWalletClient();
   // State hooks to track the transaction hash and whether or not the NFT is being minted
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
@@ -57,20 +57,14 @@ export default function NftMinter({
         </div>
 
         <div className={styles.nft_info}>
-          <h1 className={styles.nft_title}>PANDEMONIUM SQUAD</h1>
+          <h1 className={styles.nft_title}>PANDEMONIUM</h1>
           <h3 className={styles.nft_author}>By wayalabs.nft</h3>
           <p className={styles.text}>
-            The PANDEMONIUM SQUAD is a collection of 10,000 unique NFTs.
+            PANDEMONIUM is a collection of 10,000 unique MACAW NFTs designed to reward the community.
 
             The NFTs holder will have unique perks and rewards, including access
-            to the private discord channel, and airdrops of the future
-            collections.
-
-            The NFTs are generated randomly, and the rarity is determined by the
-            number of traits that the NFT has. The more traits, the more rare the
-            NFT is.
-
-
+            to the private discord channel, and lottery airdrops to a random holder
+            on every new mint.
           </p>
           <hr className={styles.break} />
           <h3 className={styles.nft_instructions_title}>INSTRUCTIONS</h3>
