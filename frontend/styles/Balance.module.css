@@ -1,42 +1,29 @@
 .token_panel_container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 0 1em;
-  margin-top: 3rem;
-  color: rgb(110, 118, 125);
-  background-color: rgb(255, 255, 255);
-  border-radius: 12px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 0px 0px 1px, rgb(0 0 0 / 10%) 0px 4px 16px;
-  border: 1px solid rgb(207, 217, 240);
-  padding: 2em;
+  justify-content: center;
+  margin-top: 2rem;
   height: 100%;
-  width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  border-radius: 12px;
+  padding: 2em;
+  width: 80%;
+  margin: 0 auto;  
 }
 
 .tokens_box {
-  background-color: white;
   border-radius: 12px;
   border: 1px solid #cfd9f0;
   padding: 1em;
-  height: 300px;
-  width: 378px;
-  overflow: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  width: 421px;
 
 }
 
 .header {
   font-weight: 700;
   font-size: 18px;
-  margin-bottom: 2em;
+  color: #4e4e4e;
+  margin-bottom: 2rem;
+
 
 }
 
@@ -47,6 +34,7 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  maging-top: 4rem;
 
 }
 
@@ -54,19 +42,16 @@
   height: 30px;
   width: 30px;
   border-radius: 100%;
-  background: linear-gradient(#ffd27c, #ffaa8f);
+  background: transparent;
 
 }
 
 .image_placeholder_container {
-  height: 30px;
-  width: 30px;
+
   border-radius: 100%;
-  background: linear-gradient(#ffd27c, #ffaa8f);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
 
 }
 
@@ -89,24 +74,24 @@
 }
 .token_name {
   display: flex;
-  font-weight: 600;
+  font-weight: 700;
   align-items: center;
-  gap: 1em;
-  font-size: 16px;
-  color: #4e4e4e;
+  gap: 1.2em;
+  font-size: 18px;
+  color:  #f2c94c;   /*yellow color*/ 
   
 }
 
 .token_info {
   display: flex;
   gap: 0.5em;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 16px;
-  color: #4e4e4e;
+  color:  #27ae60;    /* color green  #27ae60; */
 }
 
 .coin_symbol {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
 
 }
@@ -115,6 +100,8 @@
   @media (max-width: 768px){
     .token_panel_container {
       margin-top: 0;
+      border: 1px solid rgb(207, 217, 240);
+
     }
 
     .tokens_box {

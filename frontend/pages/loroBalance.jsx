@@ -1,4 +1,4 @@
-import styles from "../styles/TokensBalanceDisplay.module.css";
+import styles from "../styles/Balance.module.css";
 import TokensBalanceDisplay from "../components/TokensBalanceDisplay";
 
 

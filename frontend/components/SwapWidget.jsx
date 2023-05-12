@@ -1,5 +1,4 @@
 import { SwapWidget } from '@uniswap/widgets'
-import Head from 'next/head';
 import styles from '../styles/SwapWidget.module.css';
 import '@uniswap/widgets/fonts.css'
 

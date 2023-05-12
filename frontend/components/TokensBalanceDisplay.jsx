@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAccount } from "wagmi";
-import styles from "../styles/TokensBalanceDisplay.module.css";
+import styles from "../styles/Balance.module.css";
+import Image from "next/image";
 
 // Define TokensBalancePanel component
 export default function TokensBalancePanel({ walletAddress, chain }) {
@@ -58,29 +59,31 @@ export default function TokensBalancePanel({ walletAddress, chain }) {
         {isLoading
           ? "Loading..."
           : tokensBalance?.length &&
-            tokensBalance?.map((token, i) => {
-              const convertedBalance = Math.round(token.balance * 100) / 100;
-              return (
-                <div key={i} className={styles.token_container}>
-                  <div className={styles.token_name}>
-                    {token.logo ? (
-                      <img
-                        className={styles.image_container}
-                        src={token.logo}
-                        alt={""}
-                      ></img>
-                    ) : (
-                      <div className={styles.image_placeholder_container}></div>
-                    )}
-                    <div className={styles.coin_name}>{token.name}</div>
-                  </div>
-                  <div className={styles.token_info}>
-                    <div className={styles.price}>{convertedBalance}</div>
-                    <div className={styles.coin_symbol}>{token.symbol}</div>
-                  </div>
+          tokensBalance?.map((token, i) => {
+            const convertedBalance = Math.round(token.balance * 100) / 100;
+            return (
+              <div key={i} className={styles.token_container}>
+                <div className={styles.token_name}>
+                  {token.logo ? (
+                    <Image
+                      className={styles.image_container}
+                      src="/token-logo.png"
+                      alt="Token logo"
+                      width={100}
+                      height={100}
+                    />
+                  ) : (
+                    <div className={styles.image_placeholder_container}></div>
+                  )}
+                  <div className={styles.coin_name}>{token.name}</div>
                 </div>
-              );
-            })}
+                <div className={styles.token_info}>
+                  <div className={styles.price}>{convertedBalance}</div>
+                  <div className={styles.coin_symbol}>{token.symbol}</div>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

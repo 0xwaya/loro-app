@@ -4,10 +4,10 @@ import { Network, Alchemy, TokenBalanceType } from "alchemy-sdk";
 export default async function handler(req, res) {
   // parse the address and chain from the request body
   const {
-     address,
-      chain = "OPT_GOERLI",
-    
-    } = JSON.parse(req.body);
+    address,
+    chain = "OPT_GOERLI",
+
+  } = JSON.parse(req.body);
 
   // check if the request method is POST
   if (req.method !== "POST") {
@@ -36,14 +36,14 @@ export default async function handler(req, res) {
 
     // create an object representing the LORO token balance
     const loroBalanceObject = {
-      name: "ParrotCoin", // LORO token name
-      symbol: "PARROT", // LORO token symbol
+      name: "Loro Coin", // LORO token name
+      symbol: "LORO", // LORO token symbol
       logo: "https://github.com/0xwaya/loro-app/blob/main/frontend/public/token-logo.png?raw=true",
       decimals: 18, // LORO token has 18 decimals
       balance: parsedLoroBalance.toFixed(2),
-      address: "0x3b3a9A66cD7f5f2dA202E973BB86976162f1C55D",  // PARROT COIN ADDRESS
+      address: "0x3b3a9A66cD7f5f2dA202E973BB86976162f1C55D",  // LORO COIN ADDRESS
     };
- 
+
 
 
     // extract the token balances and contract addresses from the fetched tokens

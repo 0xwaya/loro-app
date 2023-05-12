@@ -62,7 +62,6 @@ a {
 
 @media (prefers-color-scheme: dark) {
 	html {
-		background: linear-gradient(to bottom, #000000, #1a1a1a);
 	}
 
 }

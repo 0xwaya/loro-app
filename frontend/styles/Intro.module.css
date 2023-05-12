@@ -51,7 +51,6 @@
 		width: 80%;
 		height: 76px;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		padding: 2rem;
@@ -74,8 +73,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 1rem;
-
+		margin-bottom: 0rem;
 
 	}
 }
@@ -198,7 +196,6 @@ transition: all 0.3s ease;
 .button p {
 display: flex;
 flex-direction: column;
-align-items: center;
 justify-content: center;
 font-style: bold;
 color: black;
