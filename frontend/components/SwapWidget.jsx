@@ -1,14 +1,12 @@
-import { SwapWidget } from '@uniswap/widgets'
-import styles from '../styles/SwapWidget.module.css';
+import { darkTheme, lightTheme, Theme, SwapWidget } from '@uniswap/widgets'
 import '@uniswap/widgets/fonts.css'
 
-export default function SwapWidget() {
+let darkMode = true // Dynamically toggle dark mode on and off
+export default function Home() {
     return (
-        <div className={styles.container}>
-            <Head />
-            <main className="Uniswap">
-                <SwapWidget />
-            </main>
+        <div className="Uniswap">
+            <SwapWidget theme={darkMode ? darkTheme : lightTheme} />
         </div>
     );
 }
+

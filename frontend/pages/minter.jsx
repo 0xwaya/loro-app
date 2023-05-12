@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <main className={styles.main}>
-        <NftMinter />
+        <NftMinter></NftMinter>
       </main>
     </div>
   );

@@ -2,6 +2,7 @@ import styles from "../styles/NftMinter.module.css";
 import { Contract } from "alchemy-sdk";
 import { useState } from "react";
 import { useAccount, useSigner } from "wagmi";
+import Image from "next/image";
 
 
 export default function NftMinter({
@@ -93,12 +94,10 @@ export default function NftMinter({
                   <div>
                     {txHash.slice(0, 6)}...{txHash.slice(6, 10)}
                   </div>
-                  <img
-                    src={
-                      "https://static.alchemyapi.io/images/cw3d/Icon%20Large/etherscan-l.svg"
-                    }
-                    width="20px"
-                    height="20px"
+                  <Image
+                    src="/etherscan.png"
+                    width={20}
+                    height={20}
                   />
                 </div>
               </a>
