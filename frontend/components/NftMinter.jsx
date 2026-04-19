@@ -1,57 +1,53 @@
-import styles from "../styles/NftMinter.module.css";
-import { Contract } from "alchemy-sdk";
-import { useState } from "react";
-import { useAccount, useSigner } from "wagmi";
-import Image from "next/image";
-
+import styles from '../styles/NftMinter.module.css';
+import { useMemo, useState } from 'react';
+import { Contract } from 'ethers';
+import { useAccount, useSigner } from 'wagmi';
+import Image from 'next/image';
+import nftAbi from '../pages/abi/nftAbi.json';
 
 export default function NftMinter({
-  contractAddress = "0xc93cE0A6e36aeAf1B5164693DC8EC2617Aefe063",
-  tokenUri = "ipfs://bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
-  abi = "./pages/abi/nftAbi.json",
-  contentSrc = "https://nftstorage.link/ipfs/bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4",
-  contentType = "image"
+  contractAddress = process.env.NEXT_PUBLIC_PANDEMONIUM_ADDRESS || '',
+  tokenUri = 'ipfs://bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4',
+  abi = nftAbi,
+  contentSrc = 'https://nftstorage.link/ipfs/bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4',
+  contentType = 'image',
 }) {
-  const [nftAbi, setNftAbi] = useState(abi);
-  // Get the user's wallet address and status of their connection to it
   const { address, isDisconnected } = useAccount();
-  // Get the signer instance for the connected wallet
   const { data: signer } = useSigner();
-  // State hooks to track the transaction hash and whether or not the NFT is being minted
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
 
-  // Function to mint a new NFT
+  const nftContract = useMemo(() => {
+    if (!signer) return null;
+    return new Contract(contractAddress, abi, signer);
+  }, [abi, contractAddress, signer]);
+
   const mintNFT = async () => {
-    console.log(tokenUri, contractAddress, address);
+    if (!nftContract || !address || !contractAddress) return;
+
     try {
-      // Set isMinting to true to show that the transaction is being processed
       setIsMinting(true);
-      // Call the smart contract function to mint a new NFT with the provided token URI and the user's address
       const mintTx = await nftContract.safeMint(address, tokenUri);
-      // Set the transaction hash in state to display in the UI
       setTxHash(mintTx?.hash);
-      // Wait for the transaction to be processed
       await mintTx.wait();
-      // Reset isMinting and txHash in state
       setIsMinting(false);
       setTxHash(null);
     } catch (e) {
-      // If an error occurs, log it to the console and reset isMinting to false
       console.log(e);
       setIsMinting(false);
     }
   };
+
   return (
     <div className={styles.page_flexBox}>
       <div className={styles.page_container}>
         <div className={styles.nft_media_container}>
-          {contentType == "video" ? (
+          {contentType === 'video' ? (
             <video className={styles.nft_media} autoPlay={true}>
-              <source src={contentSrc} type="video/mp4" />
+              <source src={contentSrc} type='video/mp4' />
             </video>
           ) : (
-            <img src={contentSrc} className={styles.nft_media} />
+            <img src={contentSrc} className={styles.nft_media} alt='Pandemonium NFT preview' />
           )}
         </div>
 
@@ -60,45 +56,36 @@ export default function NftMinter({
           <h3 className={styles.nft_author}>By wayalabs.nft</h3>
           <p className={styles.text}>
             PANDEMONIUM is a collection of 10,000 unique MACAW NFTs designed to reward the community.
-
-            The NFTs holder will have unique perks and rewards, including access
-            to the private discord channel, and lottery airdrops to a random holder
-            on every new mint.
+            The NFTs holder will have unique perks and rewards, including access to the private discord
+            channel, and lottery airdrops to a random holder on every new mint.
           </p>
           <hr className={styles.break} />
           <h3 className={styles.nft_instructions_title}>INSTRUCTIONS</h3>
           <p className={styles.text}>
-            This NFT is on OPTIMISM GOERLI. You’ll need some test GOERLI to mint the
-            NFT. <a href="https://faucet.goerli.mudit.blog/">Get some here</a>.
+            This NFT is on SEPOLIA. You&apos;ll need some test Sepolia ETH to mint the NFT.{' '}
+            <a href='https://cloud.google.com/application/web3/faucet/ethereum/sepolia'>Get some here</a>.
           </p>
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>
+          ) : !contractAddress ? (
+            <p>Set NEXT_PUBLIC_PANDEMONIUM_ADDRESS to enable minting on Sepolia.</p>
           ) : !txHash ? (
             <button
-              className={`${styles.button} ${isMinting && `${styles.isMinting}`
-                }`}
-              disabled={isMinting}
+              className={`${styles.button} ${isMinting ? styles.isMinting : ''}`}
+              disabled={isMinting || !nftContract || !contractAddress}
               onClick={async () => await mintNFT()}
             >
-              {isMinting ? "Minting" : "Mint Now"}
+              {isMinting ? 'Minting' : 'Mint Now'}
             </button>
           ) : (
             <div>
               <h3 className={styles.attribute_input_label}>TX ADDRESS</h3>
-              <a
-                href={`https://goerli.etherscan.com/tx/${txHash}`}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={`https://sepolia.etherscan.io/tx/${txHash}`} target='_blank' rel='noreferrer'>
                 <div className={styles.address_container}>
                   <div>
                     {txHash.slice(0, 6)}...{txHash.slice(6, 10)}
                   </div>
-                  <Image
-                    src="/etherscan.png"
-                    width={20}
-                    height={20}
-                  />
+                  <Image src='/etherscan.png' width={20} height={20} alt='View on Etherscan' />
                 </div>
               </a>
             </div>

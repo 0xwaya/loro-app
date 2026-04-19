@@ -4,11 +4,11 @@
 	"private": true,
 	"scripts": {
 		"build": "npx hardhat compile",
-		"deploy-pandemonium-goerli": "npx hardhat run ./scripts/Pandemonium_deploy.js  --network goerli",
-		"deploy-parrot-goerli": "npx hardhat run ./scripts/ParrotCoin_deploy.js  --network goerli",
-		"deploy-lottery-goerli": "npx hardhat run ./scripts/ParrotLottery_deploy.js  --network goerli",
 		"node": "npx hardhat node",
-		"deploy-local": "npx hardhat run ./scripts/Pandemonium_deploy.js --network localhost"
+		"deploy-local": "npx hardhat run ./scripts/Pandemonium_deploy.js --network localhost",
+		"deploy-pandemonium-sepolia": "npx hardhat run ./scripts/Pandemonium_deploy.js --network sepolia",
+		"deploy-parrot-sepolia": "npx hardhat run ./scripts/ParrotCoin_deploy.js --network sepolia",
+		"deploy-lottery-sepolia": "npx hardhat run ./scripts/ParrotLottery_deploy.js --network sepolia"
 	},
 	"dependencies": {
 		"@chainlink/contracts": "^0.5.1",
