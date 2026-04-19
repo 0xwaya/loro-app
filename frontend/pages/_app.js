@@ -3,7 +3,13 @@ import '@rainbow-me/rainbowkit/styles.css';
 
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { sepolia } from 'wagmi/chains';
+import {
+  sepolia,
+  polygonMumbai,
+  optimismGoerli,
+  arbitrumGoerli,
+  avalancheFuji,
+} from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import { NextUIProvider } from '@nextui-org/react';
@@ -13,7 +19,7 @@ const walletConnectProjectId =
   process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'demo';
 
 const { chains, provider } = configureChains(
-  [sepolia],
+  [sepolia, polygonMumbai, optimismSepolia, arbitrumSepolia, avalancheFuji],
   [
     alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || 'demo' }),
     publicProvider(),
