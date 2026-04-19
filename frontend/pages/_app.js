@@ -1,35 +1,34 @@
-import "../styles/globals.css";
-import "@rainbow-me/rainbowkit/styles.css";
+import '../styles/globals.css';
+import '@rainbow-me/rainbowkit/styles.css';
 
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { configureChains, createClient, useAccount, WagmiConfig } from "wagmi";
+import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import {
   goerli,
   polygonMumbai,
   optimismGoerli,
   arbitrumGoerli,
   avalancheFuji,
-
-} from "wagmi/chains";
-import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
+} from 'wagmi/chains';
+import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { publicProvider } from 'wagmi/providers/public';
 import { NextUIProvider } from '@nextui-org/react';
-import MainLayout from "../layout/mainLayout";
+import MainLayout from '../layout/mainLayout';
+
+const walletConnectProjectId =
+  process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'demo';
 
 const { chains, provider } = configureChains(
+  [goerli, polygonMumbai, optimismGoerli, arbitrumGoerli, avalancheFuji],
   [
-    goerli,
-    polygonMumbai,
-    optimismGoerli,
-    arbitrumGoerli,
-    avalancheFuji,
-
-  ],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_API_KEY }), publicProvider()]
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || 'demo' }),
+    publicProvider(),
+  ]
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "Loro dApp",
+  appName: 'Loro dApp',
+  projectId: walletConnectProjectId,
   chains,
 });
 
@@ -39,22 +38,11 @@ const wagmiClient = createClient({
   provider,
 });
 
-export { WagmiConfig, RainbowKitProvider };
-
 function MyApp({ Component, pageProps }) {
-  const account = useAccount({
-    onConnect({ address, connector, isReconnected }) {
-      if (!isReconnected) router.reload();
-    },
-  });
   return (
     <NextUIProvider>
       <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider
-          modalSize="compact"
-          initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
-          chains={chains}
-        >
+        <RainbowKitProvider chains={chains} modalSize='compact'>
           <MainLayout>
             <Component {...pageProps} />
           </MainLayout>
