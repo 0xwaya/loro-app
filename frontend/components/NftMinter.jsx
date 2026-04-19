@@ -6,7 +6,7 @@ import Image from 'next/image';
 import nftAbi from '../pages/abi/nftAbi.json';
 
 export default function NftMinter({
-  contractAddress = '0xc93cE0A6e36aeAf1B5164693DC8EC2617Aefe063',
+  contractAddress = process.env.NEXT_PUBLIC_PANDEMONIUM_ADDRESS || '',
   tokenUri = 'ipfs://bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4',
   abi = nftAbi,
   contentSrc = 'https://nftstorage.link/ipfs/bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4',
@@ -23,7 +23,7 @@ export default function NftMinter({
   }, [abi, contractAddress, signer]);
 
   const mintNFT = async () => {
-    if (!nftContract || !address) return;
+    if (!nftContract || !address || !contractAddress) return;
 
     try {
       setIsMinting(true);
@@ -62,15 +62,17 @@ export default function NftMinter({
           <hr className={styles.break} />
           <h3 className={styles.nft_instructions_title}>INSTRUCTIONS</h3>
           <p className={styles.text}>
-            This NFT is on OPTIMISM GOERLI. You&apos;ll need some test GOERLI to mint the NFT.{' '}
-            <a href='https://faucet.goerli.mudit.blog/'>Get some here</a>.
+            This NFT is on SEPOLIA. You&apos;ll need some test Sepolia ETH to mint the NFT.{' '}
+            <a href='https://cloud.google.com/application/web3/faucet/ethereum/sepolia'>Get some here</a>.
           </p>
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>
+          ) : !contractAddress ? (
+            <p>Set NEXT_PUBLIC_PANDEMONIUM_ADDRESS to enable minting on Sepolia.</p>
           ) : !txHash ? (
             <button
               className={`${styles.button} ${isMinting ? styles.isMinting : ''}`}
-              disabled={isMinting || !nftContract}
+              disabled={isMinting || !nftContract || !contractAddress}
               onClick={async () => await mintNFT()}
             >
               {isMinting ? 'Minting' : 'Mint Now'}
@@ -78,7 +80,7 @@ export default function NftMinter({
           ) : (
             <div>
               <h3 className={styles.attribute_input_label}>TX ADDRESS</h3>
-              <a href={`https://goerli.etherscan.com/tx/${txHash}`} target='_blank' rel='noreferrer'>
+              <a href={`https://sepolia.etherscan.io/tx/${txHash}`} target='_blank' rel='noreferrer'>
                 <div className={styles.address_container}>
                   <div>
                     {txHash.slice(0, 6)}...{txHash.slice(6, 10)}

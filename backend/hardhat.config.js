@@ -2,16 +2,18 @@ require('@nomicfoundation/hardhat-toolbox');
 require('dotenv').config();
 
 const privateKey = process.env.PRIVATE_KEY;
-const goerliUrl = process.env.GOERLI_RPC_URL;
+const sepoliaUrl = process.env.SEPOLIA_RPC_URL;
+
+const hasValidPrivateKey = privateKey && privateKey.length === 64;
 
 const networks = {
   hardhat: {},
 };
 
-if (privateKey && privateKey.length === 64 && goerliUrl) {
-  networks.goerli = {
+if (hasValidPrivateKey && sepoliaUrl) {
+  networks.sepolia = {
     accounts: [privateKey],
-    url: goerliUrl,
+    url: sepoliaUrl,
   };
 }
 

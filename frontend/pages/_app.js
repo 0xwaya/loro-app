@@ -4,7 +4,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import {
-  goerli,
+  sepolia,
   polygonMumbai,
   optimismGoerli,
   arbitrumGoerli,
@@ -19,7 +19,7 @@ const walletConnectProjectId =
   process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'demo';
 
 const { chains, provider } = configureChains(
-  [goerli, polygonMumbai, optimismGoerli, arbitrumGoerli, avalancheFuji],
+  [sepolia, polygonMumbai, optimismSepolia, arbitrumSepolia, avalancheFuji],
   [
     alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || 'demo' }),
     publicProvider(),

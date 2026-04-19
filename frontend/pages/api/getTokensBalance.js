@@ -6,11 +6,11 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { address, chain = 'OPT_GOERLI' } = JSON.parse(req.body);
+  const { address, chain = 'ETH_SEPOLIA' } = JSON.parse(req.body);
 
   const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: Network[chain] || Network.OPT_GOERLI,
+    network: Network[chain] || Network.ETH_SEPOLIA,
   };
 
   const alchemy = new Alchemy(settings);
