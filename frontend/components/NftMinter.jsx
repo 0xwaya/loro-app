@@ -1,6 +1,6 @@
 import styles from '../styles/NftMinter.module.css';
 import { useMemo, useState } from 'react';
-import { Contract } from 'ethers';
+import { Contract, utils } from 'ethers';
 import { useAccount, useSigner } from 'wagmi';
 import Image from 'next/image';
 import nftAbi from '../pages/abi/nftAbi.json';
@@ -17,13 +17,15 @@ export default function NftMinter({
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
 
+  const hasValidContractAddress = utils.isAddress(contractAddress);
+
   const nftContract = useMemo(() => {
-    if (!signer) return null;
+    if (!signer || !hasValidContractAddress) return null;
     return new Contract(contractAddress, abi, signer);
-  }, [abi, contractAddress, signer]);
+  }, [abi, contractAddress, hasValidContractAddress, signer]);
 
   const mintNFT = async () => {
-    if (!nftContract || !address || !contractAddress) return;
+    if (!nftContract || !address) return;
 
     try {
       setIsMinting(true);
@@ -67,12 +69,12 @@ export default function NftMinter({
           </p>
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>
-          ) : !contractAddress ? (
-            <p>Set NEXT_PUBLIC_PANDEMONIUM_ADDRESS to enable minting on Sepolia.</p>
+          ) : !hasValidContractAddress ? (
+            <p>Set a valid NEXT_PUBLIC_PANDEMONIUM_ADDRESS to enable minting on Sepolia.</p>
           ) : !txHash ? (
             <button
               className={`${styles.button} ${isMinting ? styles.isMinting : ''}`}
-              disabled={isMinting || !nftContract || !contractAddress}
+              disabled={isMinting || !nftContract}
               onClick={async () => await mintNFT()}
             >
               {isMinting ? 'Minting' : 'Mint Now'}
