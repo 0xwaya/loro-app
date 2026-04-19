@@ -1,16 +1,26 @@
 require('@nomicfoundation/hardhat-toolbox');
-require('dotenv').config()
+require('dotenv').config();
+
+const privateKey = process.env.PRIVATE_KEY;
+const sepoliaUrl = process.env.SEPOLIA_RPC_URL;
+
+const hasValidPrivateKey = privateKey && privateKey.length === 64;
+
+const networks = {
+  hardhat: {},
+};
+
+if (hasValidPrivateKey && sepoliaUrl) {
+  networks.sepolia = {
+    accounts: [privateKey],
+    url: sepoliaUrl,
+  };
+}
 
 module.exports = {
-	solidity: "0.8.9",
-	networks: {
-		hardhat: {},
-		goerli: {
-			accounts: [`${process.env.PRIVATE_KEY}`],
-			url: `https://eth-goerli.g.alchemy.com/v2/x-bKaeoHtE2HGv0JrWFlGfA7F6F7OSKg`	
-		},
-	},
-	etherscan: {
-		apiKey: `${process.env.ETHERSCAN_API_KEY}`
-	}
-}
+  solidity: '0.8.9',
+  networks,
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY || '',
+  },
+};
