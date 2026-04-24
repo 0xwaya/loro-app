@@ -1,136 +1,72 @@
 .token_panel_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2rem;
-  height: 100%;
-  border-radius: 12px;
-  padding: 2em;
-  width: 80%;
-  margin: 0 auto;  
+  width: min(860px, 100%);
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .tokens_box {
-  border-radius: 12px;
-  border: 1px solid #cfd9f0;
-  padding: 1em;
-  width: 421px;
-
+  border-radius: 18px;
+  border: 1px solid rgba(152, 255, 201, 0.2);
+  background: linear-gradient(165deg, rgba(8, 30, 29, 0.84), rgba(9, 21, 24, 0.62));
+  padding: 1rem;
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.34);
 }
 
 .header {
-  font-weight: 700;
-  font-size: 18px;
-  color: #4e4e4e;
-  margin-bottom: 2rem;
-
-
+  font-family: 'Space Mono', monospace;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  margin-bottom: 0.8rem;
 }
 
 .token_container {
   display: flex;
   justify-content: space-between;
-  margin-block: 1.5em;
   align-items: center;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  maging-top: 4rem;
+  border: 1px solid rgba(152, 255, 201, 0.12);
+  border-radius: 12px;
+  padding: 0.62rem 0.72rem;
+  margin-bottom: 0.56rem;
+  background: rgba(5, 27, 26, 0.45);
+}
 
+.token_name {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 
 .image_container {
-  height: 30px;
-  width: 30px;
-  border-radius: 100%;
-  background: transparent;
-
+  height: 28px;
+  width: 28px;
+  border-radius: 999px;
 }
 
-.image_placeholder_container {
-
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.image_container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 100%;
-
-}
-
-.token_name_sybol_container {
-  display: flex;
-  column-gap: 0.5rem;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  
-
-}
-.token_name {
-  display: flex;
-  font-weight: 700;
-  align-items: center;
-  gap: 1.2em;
-  font-size: 18px;
-  color:  #f2c94c;   /*yellow color*/ 
-  
+.coin_name {
+  color: var(--text-primary);
+  font-size: 0.9rem;
 }
 
 .token_info {
-  display: flex;
-  gap: 0.5em;
-  font-weight: 800;
-  font-size: 16px;
-  color:  #27ae60;    /* color green  #27ae60; */
+  text-align: right;
+}
+
+.price {
+  color: #f4d35e;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .coin_symbol {
-  font-weight: 600;
-  font-size: 16px;
-
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  margin-top: 0.1rem;
 }
 
-  
-  @media (max-width: 768px){
-    .token_panel_container {
-      margin-top: 0;
-      border: 1px solid rgb(207, 217, 240);
-
-    }
-
-    .tokens_box {
-      width: 100%;
-      height: 100%;
-      border-radius: 0;
-      border: none;
-      padding: 0;
-    }
-
-    .header {
-      margin-bottom: 1em;
-    }
-
-    .token_container {
-      margin-block: 1em;
-    }
-    
-    .token_name {
-      font-size: 15px;
-    }
-
-    .token_info {
-      font-size: 15px;
-    }
-
-    .coin_symbol {
-      font-size: 15px;
-    }
-
+.image_placeholder_container {
+  height: 28px;
+  width: 28px;
+  border-radius: 999px;
+  background: rgba(152, 255, 201, 0.2);
 }
-

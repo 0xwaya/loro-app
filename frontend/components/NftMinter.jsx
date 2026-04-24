@@ -49,7 +49,7 @@ export default function NftMinter({
               <source src={contentSrc} type='video/mp4' />
             </video>
           ) : (
-            <img src={contentSrc} className={styles.nft_media} alt='Pandemonium NFT preview' />
+            <Image src={contentSrc} className={styles.nft_media} alt='Pandemonium NFT preview' width={640} height={640} />
           )}
         </div>
 

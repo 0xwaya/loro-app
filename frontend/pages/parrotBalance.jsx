@@ -1,5 +1,5 @@
 import TokensBalanceDisplay from '../components/TokensBalanceDisplay';
 
-export default function LoroBalancePage() {
+export default function ParrotBalancePage() {
   return <TokensBalanceDisplay />;
 }

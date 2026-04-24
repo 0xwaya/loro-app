@@ -1,217 +1,115 @@
-.page_flexBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: center;
-  border: 2px solid #cfd9f0;
-  max-width: 724px;
-  padding: 2px,  2px,  2px,  2px;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  border-radius: 13px;
+.main {
+  width: 100%;
+}
 
+.page_flexBox {
+  width: min(1060px, 100%);
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .page_container {
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 321px;
-  gap: 1px;
-  width: 90%;
-  padding: 0 1rem, 0 1rem, 0 1rem, 0 1rem;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1rem;
+  border: 1px solid rgba(152, 255, 201, 0.2);
+  border-radius: 20px;
+  background: linear-gradient(155deg, rgba(7, 30, 30, 0.86), rgba(9, 20, 23, 0.74));
+  padding: 1rem;
+  box-shadow: 0 24px 42px rgba(0, 0, 0, 0.36);
+}
 
+.nft_media_container {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(152, 255, 201, 0.2);
+  background: rgba(6, 26, 24, 0.4);
+}
 
+.nft_media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .nft_info {
-  justify-content: center;
+  display: flex;
   flex-direction: column;
-  color: #4e4e4e;
-  gap: 10px;
+  color: var(--text-primary);
 }
 
 .nft_title {
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 0.3rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
-	background-clip: text;
-	color: transparent;
-	border-radius: 6px;
+  font-size: clamp(1.7rem, 5vw, 2.7rem);
+  line-height: 0.96;
 }
-
 
 .nft_author {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 0.3rem;
-
-}
-
-.nft_instructions_title {
-  color: #4e4e4e;
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 0.3rem;
-
+  color: var(--text-dim);
+  margin: 0.35rem 0 0.75rem;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .text {
-  display: flex;
-  justify-content: relative;
-  font-size: 16px;
-  color: white;
-  font-weight: 333;
-
-  margin-bottom: 0.3rem;
-  margin-top: 0.3rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  line-height: 1.5;
-
-
-
+  color: var(--text-muted);
+  line-height: 1.58;
+  font-size: 0.95rem;
 }
 
 .break {
-  margin-block: 1em;
+  margin: 0.9rem 0;
+  border-color: rgba(152, 255, 201, 0.2);
 }
 
-.button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
-  margin-bottom: 0rem;
-  margin-top: 1rem;
-  margin-left: 0 1rem;
-  margin-right: 0 1rem;
-  gap: 1rem;
-  spacing: 1rem;
-  font-size: 2rem;
-  background: linear-gradient(to right, rgba(255, 255, 0, 1), rgba(0, 128, 0, 1));
-  border-radius: 22px;
-  shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.nft_instructions_title {
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  margin-top: 0.8rem;
+  align-self: flex-start;
+  background: linear-gradient(120deg, #9affc5, #f4d35e);
+  color: #102216;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
-  
-  }
-
-.transaction_box {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  column-gap: 5px;
-}
-.tx_hash {
-  color: rgb(0, 98, 255);
 }
 
 .isMinting {
-  background-color: lightgray;
-  cursor: not-allowed;
+  filter: grayscale(0.45);
+  cursor: progress;
 }
 
 .attribute_input_label {
-  font-weight: 700;
-  font-size: 14px;
-  color: #4e4e4e;
-  margin-block: 0.5em;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
 }
 
 .address_container {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.45rem;
+  border: 1px solid rgba(152, 255, 201, 0.3);
+  border-radius: 999px;
+  padding: 0.45rem 0.68rem;
+  background: rgba(12, 35, 29, 0.6);
 }
 
-@media screen and (max-width: 421px) {
+@media (max-width: 860px) {
   .page_container {
-    display: block;
-    width: 100%;
-    padding: 1rem, 1rem, 1rem, 1rem;
-    margin-top: 0 1rem;
-    margin-bottom: 0 1rem;
-    margin-left: 0 1rem;
-    margin-right: 0 1rem;
-    }
-
-  .page_flexBox {
-    display: block;
-    width: 372px;
-    margin: auto;
-    padding: 20px;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    border-radius: 12px;
-
-  }
-
-  .nft_info {
-    width: 100%;
-    font-size: 18px;
-  }
-
-
-  .text {
-    display: flex;
-    justify-content: relative;
-    display: block;
-
-    font-size: 18px;
-  }
-
-  .nft_author {
-    font-size: 20px;
-  }
-
-  .nft_instructions_title {
-    display: flex;
-    justify-content: relative;
-    font-size: 24px;
+    grid-template-columns: 1fr;
   }
 }
-  @media (max-width: 768px) {
-    .page_flexBox {
-      align-items: center;
-      margin: auto;
-      padding: 20px;
-      margin-top: 3rem;
-      border-radius: 12px;
-      
-    }
-  
-  
-    .nft_info {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      color: #4e4e4e;
-      gap: 10px;  
-      width: 100%;
-      margin: auto;
-
-    }
-
-    .button {
-      border-radius: 8px;
-      background-color: #4e4e4e;
-      padding: 8px 10px;
-      font-weight: 700;
-      margin-top: 1em;
-      border: none;
-      width: 100%;
-    }
-
-  }
