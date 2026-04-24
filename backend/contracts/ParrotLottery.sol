@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
-import "../node_modules/erc721a/contracts/IERC721A.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../node_modules/@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
-import "../node_modules/@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "erc721a/contracts/IERC721A.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-contract ParrotLottery is IERC721A, VRFConsumerBase, Ownable {
+contract ParrotLottery is VRFConsumerBase, Ownable {
 
     
     using EnumerableSet for EnumerableSet.AddressSet; 
@@ -43,7 +43,7 @@ contract ParrotLottery is IERC721A, VRFConsumerBase, Ownable {
     /**
      * Callback function used by VRF Coordinator
      */
-    function fulfillRandomness (uint256 randomness) internal {
+    function fulfillRandomness(bytes32, uint256 randomness) internal override {
         setEntrants();
         winner = entrants.values()[randomness % entrants.values().length];
         IERC20(coinAddress).transfer(address(winner), winningAmount);

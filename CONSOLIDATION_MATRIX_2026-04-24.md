@@ -46,6 +46,18 @@
 - run tests/build
 - confirm Vercel linkage and env parity
 
+### Verification update (2026-04-24)
+
+- Frontend:
+  - `npm run lint` succeeded (warnings only)
+  - `npm run build` succeeded
+- Backend:
+  - `npm run build` initially failed due to Solidity import/path incompatibilities
+  - Repair applied in `backend/contracts/*.sol` and documented in `backend/README.md`
+  - `npm run build` now succeeds (`npx hardhat compile`)
+  - `npm run test` now succeeds (7 passing)
+  - Local deploy dry-run succeeded (`npm run node` + `npm run deploy-local`)
+
 3. Migration workflow
 - Create `consolidation/*` branches in `/Users/pc/code/loro-app-clean`.
 - Import changes by topic (contracts, frontend pages, content), one PR per topic.

@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"build": "npx hardhat compile",
+		"test": "npx hardhat test",
 		"node": "npx hardhat node",
 		"deploy-local": "npx hardhat run ./scripts/Pandemonium_deploy.js --network localhost",
 		"deploy-pandemonium-sepolia": "npx hardhat run ./scripts/Pandemonium_deploy.js --network sepolia",

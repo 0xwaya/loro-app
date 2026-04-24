@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "../node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "../node_modules/@openzeppelin/contracts/access/AccessControl.sol";
-import "../node_modules/@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Votes.sol";
-import "../node_modules/@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Votes.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Pandemonium is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl, EIP712, ERC721Votes {
     using Counters for Counters.Counter;
@@ -59,7 +59,7 @@ contract Pandemonium is ERC721, ERC721Enumerable, ERC721URIStorage, AccessContro
     function supportsInterface(bytes4 interfaceId)
         public
         view
-        override(ERC721, ERC721Enumerable, AccessControl)
+        override(ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);

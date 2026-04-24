@@ -18,7 +18,15 @@ if (hasValidPrivateKey && sepoliaUrl) {
 }
 
 module.exports = {
-  solidity: '0.8.9',
+  solidity: {
+    version: '0.8.9',
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
   networks,
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY || '',
