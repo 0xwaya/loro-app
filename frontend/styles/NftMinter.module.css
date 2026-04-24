@@ -108,6 +108,23 @@
   background: rgba(12, 35, 29, 0.6);
 }
 
+.contract_input {
+  margin-top: 0.6rem;
+  width: min(440px, 100%);
+  background: rgba(7, 28, 27, 0.8);
+  color: var(--text-primary);
+  border: 1px solid rgba(152, 255, 201, 0.35);
+  border-radius: 12px;
+  padding: 0.62rem 0.72rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.contract_hint {
+  margin-top: 0.6rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
 @media (max-width: 860px) {
   .page_container {
     grid-template-columns: 1fr;

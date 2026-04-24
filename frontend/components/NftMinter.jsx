@@ -1,12 +1,12 @@
 import styles from '../styles/NftMinter.module.css';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Contract, utils } from 'ethers';
 import { useAccount, useSigner } from 'wagmi';
 import Image from 'next/image';
 import nftAbi from '../pages/abi/nftAbi.json';
 
 export default function NftMinter({
-  contractAddress = process.env.NEXT_PUBLIC_PANDEMONIUM_ADDRESS || '',
+  contractAddress = process.env.NEXT_PUBLIC_PANDEMONIUM_ADDRESS || process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS || '',
   tokenUri = 'ipfs://bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4',
   abi = nftAbi,
   contentSrc = 'https://nftstorage.link/ipfs/bafybeihzebqbqlmjbvdpunmrq7s733gh76avhonjmlhbov4gb2teibfng4',
@@ -16,13 +16,22 @@ export default function NftMinter({
   const { data: signer } = useSigner();
   const [txHash, setTxHash] = useState();
   const [isMinting, setIsMinting] = useState(false);
+  const [manualContractAddress, setManualContractAddress] = useState('');
 
-  const hasValidContractAddress = utils.isAddress(contractAddress);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const stored = window.localStorage.getItem('pandemonium_contract_address') || '';
+    if (stored) setManualContractAddress(stored);
+  }, []);
+
+  const effectiveContractAddress = manualContractAddress || contractAddress;
+
+  const hasValidContractAddress = utils.isAddress(effectiveContractAddress);
 
   const nftContract = useMemo(() => {
     if (!signer || !hasValidContractAddress) return null;
-    return new Contract(contractAddress, abi, signer);
-  }, [abi, contractAddress, hasValidContractAddress, signer]);
+    return new Contract(effectiveContractAddress, abi, signer);
+  }, [abi, effectiveContractAddress, hasValidContractAddress, signer]);
 
   const mintNFT = async () => {
     if (!nftContract || !address) return;
@@ -38,6 +47,12 @@ export default function NftMinter({
       console.log(e);
       setIsMinting(false);
     }
+  };
+
+  const saveManualAddress = () => {
+    if (typeof window === 'undefined') return;
+    if (!utils.isAddress(manualContractAddress)) return;
+    window.localStorage.setItem('pandemonium_contract_address', manualContractAddress);
   };
 
   return (
@@ -70,7 +85,19 @@ export default function NftMinter({
           {isDisconnected ? (
             <p>Connect your wallet to get started</p>
           ) : !hasValidContractAddress ? (
-            <p>Set a valid NEXT_PUBLIC_PANDEMONIUM_ADDRESS to enable minting on Sepolia.</p>
+            <div>
+              <p>Set a valid contract address to enable minting on Sepolia.</p>
+              <input
+                className={styles.contract_input}
+                value={manualContractAddress}
+                onChange={(e) => setManualContractAddress(e.target.value.trim())}
+                placeholder='0x...'
+              />
+              <button className={styles.button} onClick={saveManualAddress} disabled={!utils.isAddress(manualContractAddress)}>
+                Save Address
+              </button>
+              <p className={styles.contract_hint}>Env keys supported: `NEXT_PUBLIC_PANDEMONIUM_ADDRESS` or `NEXT_PUBLIC_NFT_CONTRACT_ADDRESS`</p>
+            </div>
           ) : !txHash ? (
             <button
               className={`${styles.button} ${isMinting ? styles.isMinting : ''}`}
