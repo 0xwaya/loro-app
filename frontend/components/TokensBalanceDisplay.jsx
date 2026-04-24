@@ -44,13 +44,16 @@ export default function TokensBalancePanel({ walletAddress, chain }) {
     if (address?.length) setMyAddress(address);
   }, [address]);
 
+  const shortAddress =
+    myAddress && myAddress.length > 10 ? `${myAddress.slice(0, 6)}...${myAddress.slice(myAddress.length - 4)}` : myAddress;
+
   if (!walletAddress && isDisconnected) return 'No address';
 
   return (
     <div className={styles.token_panel_container}>
       <div className={styles.tokens_box}>
         <div className={styles.header}>
-          {myAddress?.slice(0, 6)}...{myAddress?.slice(myAddress.length - 4)}
+          {shortAddress || 'No wallet connected'}
         </div>
         {isLoading
           ? 'Loading...'
