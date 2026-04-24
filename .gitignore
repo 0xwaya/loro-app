@@ -65,6 +65,20 @@ typings/
 # Next.js build output
 .next
 
+# macOS / Finder noise
+.DS_Store
+**/.DS_Store
+
+# Build artifacts (Hardhat)
+backend/artifacts/
+backend/cache/
+
+# Cloud sync conflict files
+*.icloud
+*.icloud~
+
+# Vercel local metadata
+.vercel/
 
 # Lock files
 package-lock.json
