@@ -60,19 +60,28 @@ The backend compile path was repaired with these contract compatibility updates:
 3. Updated `Pandemonium.supportsInterface` override list to include `ERC721URIStorage`.
 4. Removed accidental `IERC721A` inheritance from `ParrotLottery` (it uses IERC721A as an interface dependency, not a base contract).
 5. Updated `ParrotLottery.fulfillRandomness` signature to `fulfillRandomness(bytes32,uint256) internal override` for Chainlink VRFConsumerBase compatibility.
+6. Fixed `ParrotLottery` correctness and safety issues:
+   - entrant indexing starts at token ID `0` (previously skipped first token),
+   - entrant set is refreshed per draw to avoid stale addresses,
+   - prize amount uses full token units (`10 * 10**18`),
+   - winner payout checks ERC20 transfer success,
+   - owner can configure winning amount via `setWinningAmount`.
 
 Build verification result on April 24, 2026:
 
 - `npx hardhat compile`: success (42 Solidity files compiled)
 - `npx hardhat test`: success (7 passing)
+- `npx hardhat test`: success (8 passing after additional lottery test coverage)
 - Local deployment dry-run:
   - `npm run node` + `npm run deploy-local`: success
   - `npx hardhat run ./scripts/ParrotCoin_deploy.js --network hardhat`: success
   - `npx hardhat run ./scripts/ParrotLottery_deploy.js --network hardhat`: success
 - Bytecode size warning addressed by enabling optimizer in `hardhat.config.js`.
+- Attempted `npx hardhat coverage`: plugin failed with `provider.send is not a function` in current toolchain (needs dependency/version alignment before coverage gating in CI).
 
 ## Maintenance Notes
 
 1. Keep package-style imports in all Solidity files. Avoid `../node_modules/...` imports.
 2. When upgrading OpenZeppelin or Chainlink dependencies, re-run `npm run build` and check override signatures.
 3. If deployment size is still a blocker on a target network, tune optimizer `runs` and/or reduce contract inheritance complexity.
+4. Add coverage to CI only after resolving `solidity-coverage` compatibility with the pinned Hardhat/toolbox versions.

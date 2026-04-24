@@ -55,8 +55,9 @@
   - `npm run build` initially failed due to Solidity import/path incompatibilities
   - Repair applied in `backend/contracts/*.sol` and documented in `backend/README.md`
   - `npm run build` now succeeds (`npx hardhat compile`)
-  - `npm run test` now succeeds (7 passing)
+  - `npm run test` now succeeds (8 passing)
   - Local deploy dry-run succeeded (`npm run node` + `npm run deploy-local`)
+  - Upgrade roadmap documented in `backend/UPGRADE_PLAN_2026-04-24.md`
 
 3. Migration workflow
 - Create `consolidation/*` branches in `/Users/pc/code/loro-app-clean`.

@@ -18,7 +18,7 @@ contract ParrotLottery is VRFConsumerBase, Ownable {
     address winner; // Winner address from nft owner
     IERC721A nftAddress; // ERC721A
     IERC20 coinAddress; // ERC20
-    uint8 winningAmount = 10; // 10 tokens (10 * 10^18) 
+    uint256 winningAmount = 10 * 10 ** 18; // 10 tokens (18 decimals)
 
     EnumerableSet.AddressSet entrants; // Entrants address from nft owner
 
@@ -33,9 +33,12 @@ contract ParrotLottery is VRFConsumerBase, Ownable {
     }
 
     function sendPrize() external returns (bytes32 requestId) {
+        require(address(nftAddress) != address(0), "NFT contract not set");
+        require(address(coinAddress) != address(0), "Coin contract not set");
         require(msg.sender == address(nftAddress), "Only NFT address contract can call");
+        setEntrants();
+        require(entrants.length() > 0, "There are no entrants!");
         require(LINK.balanceOf(address(this)) >= fee, "Not enough LINK - fill contract with faucet");
-        require(entrants.values().length > 0, "There are no entrants!");
 
         return requestRandomness(keyHash, fee);
     }
@@ -44,9 +47,10 @@ contract ParrotLottery is VRFConsumerBase, Ownable {
      * Callback function used by VRF Coordinator
      */
     function fulfillRandomness(bytes32, uint256 randomness) internal override {
-        setEntrants();
-        winner = entrants.values()[randomness % entrants.values().length];
-        IERC20(coinAddress).transfer(address(winner), winningAmount);
+        address[] memory currentEntrants = entrants.values();
+        require(currentEntrants.length > 0, "No entrants available");
+        winner = currentEntrants[randomness % currentEntrants.length];
+        require(coinAddress.transfer(winner, winningAmount), "Prize transfer failed");
     }
 
     function getWinner() external view returns (address) {
@@ -65,14 +69,25 @@ contract ParrotLottery is VRFConsumerBase, Ownable {
         coinAddress = IERC20(_coinAddress);
     }
 
+    function setWinningAmount(uint256 _winningAmount) external onlyOwner {
+        require(_winningAmount > 0, "Winning amount must be > 0");
+        winningAmount = _winningAmount;
+    }
+
+    function getWinningAmount() external view returns (uint256) {
+        return winningAmount;
+    }
+
     function setEntrants() private {        
         IERC721A tokenContract = IERC721A(nftAddress);
         uint256 contractTotalSupply = tokenContract.totalSupply();
 
-        for(uint256 i = 1; i <= contractTotalSupply; i++){
-            if(tokenContract.ownerOf(i) != address(0)){
-                entrants.add(tokenContract.ownerOf(i));
-            }
+        while (entrants.length() > 0) {
+            entrants.remove(entrants.at(entrants.length() - 1));
+        }
+
+        for(uint256 i = 0; i < contractTotalSupply; i++){
+            entrants.add(tokenContract.ownerOf(i));
         }
     }
 

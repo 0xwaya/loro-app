@@ -24,6 +24,21 @@ describe("ParrotLottery", function () {
     const lottery = await ParrotLottery.deploy();
     await lottery.deployed();
 
-    await expect(lottery.sendPrize()).to.be.revertedWith("Only NFT address contract can call");
+    await expect(lottery.sendPrize()).to.be.revertedWith("NFT contract not set");
+  });
+
+  it("allows owner to set winning amount and blocks non-owner", async function () {
+    const [owner, stranger] = await ethers.getSigners();
+    const ParrotLottery = await ethers.getContractFactory("ParrotLottery");
+    const lottery = await ParrotLottery.deploy();
+    await lottery.deployed();
+
+    const newAmount = ethers.utils.parseEther("25");
+
+    await expect(lottery.connect(stranger).setWinningAmount(newAmount)).to.be.revertedWith(
+      "Ownable: caller is not the owner"
+    );
+    await expect(lottery.connect(owner).setWinningAmount(newAmount)).to.not.be.reverted;
+    expect(await lottery.getWinningAmount()).to.equal(newAmount);
   });
 });
