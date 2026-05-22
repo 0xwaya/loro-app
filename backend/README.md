@@ -94,7 +94,7 @@ Recent review/debug changes:
 2. `ParrotCoin` now rejects zero-address transfer/approval operations and requires allowance reset to `0` before changing to a new non-zero amount.
 3. Tests were expanded to verify these security guards.
 
-### Validation status in this environment
+### Troubleshooting (environment-specific)
 
 - `frontend`: `npm run lint` ✅, `npm run build` ✅
 - `backend`: compile/test blocked ❌ due to DNS/network restriction while downloading solc (`binaries.soliditylang.org`)

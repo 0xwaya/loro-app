@@ -55,6 +55,7 @@ function balanceOf(address _owner) public view override returns (uint256) {
 
 function approve(address _spender, uint256 _value) public override returns (bool) {
     require(_spender != address(0), "Approve to zero address");
+    // Mitigates ERC20 allowance race condition by forcing explicit reset before changing non-zero allowances.
     require(_value == 0 || allowed[msg.sender][_spender] == 0, "Reset allowance to 0 first");
     allowed[msg.sender][_spender] = _value;
     emit Approval(msg.sender, _spender, _value);

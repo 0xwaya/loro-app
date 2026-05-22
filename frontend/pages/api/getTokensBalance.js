@@ -1,14 +1,5 @@
-import { Network, Alchemy, TokenBalanceType } from 'alchemy-sdk';
-
-const EVM_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;
-
-function parseRequestBody(req) {
-  try {
-    return typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {};
-  } catch (_error) {
-    return null;
-  }
-}
+import { Alchemy, TokenBalanceType } from 'alchemy-sdk';
+import { parseRequestBody, isValidEvmAddress, resolveAlchemyNetwork } from '../../lib/apiUtils';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -23,13 +14,12 @@ export default async function handler(req, res) {
   }
 
   const { address, chain = 'ETH_SEPOLIA' } = body;
-  if (!EVM_ADDRESS_REGEX.test(address || '')) {
+  if (!isValidEvmAddress(address)) {
     res.status(400).json({ message: 'Invalid wallet address' });
     return;
   }
 
-  const normalizedChain = typeof chain === 'string' ? chain.trim().toUpperCase() : 'ETH_SEPOLIA';
-  const network = Object.prototype.hasOwnProperty.call(Network, normalizedChain) ? Network[normalizedChain] : null;
+  const network = resolveAlchemyNetwork(chain);
   if (!network) {
     res.status(400).json({ message: 'Unsupported chain' });
     return;
