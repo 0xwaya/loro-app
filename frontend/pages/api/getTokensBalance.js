@@ -1,16 +1,43 @@
 import { Network, Alchemy, TokenBalanceType } from 'alchemy-sdk';
 
+const EVM_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;
+
+function parseRequestBody(req) {
+  try {
+    return typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {};
+  } catch (_error) {
+    return null;
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).send({ message: 'Only POST requests allowed' });
     return;
   }
 
-  const { address, chain = 'ETH_SEPOLIA' } = JSON.parse(req.body);
+  const body = parseRequestBody(req);
+  if (!body) {
+    res.status(400).json({ message: 'Invalid JSON body' });
+    return;
+  }
+
+  const { address, chain = 'ETH_SEPOLIA' } = body;
+  if (!EVM_ADDRESS_REGEX.test(address || '')) {
+    res.status(400).json({ message: 'Invalid wallet address' });
+    return;
+  }
+
+  const normalizedChain = typeof chain === 'string' ? chain.trim().toUpperCase() : 'ETH_SEPOLIA';
+  const network = Object.prototype.hasOwnProperty.call(Network, normalizedChain) ? Network[normalizedChain] : null;
+  if (!network) {
+    res.status(400).json({ message: 'Unsupported chain' });
+    return;
+  }
 
   const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: Network[chain] || Network.ETH_SEPOLIA,
+    network,
   };
 
   const alchemy = new Alchemy(settings);

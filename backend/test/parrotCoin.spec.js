@@ -42,4 +42,25 @@ describe("ParrotCoin", function () {
     expect(await token.allowance(owner.address, spender.address)).to.equal(0);
     expect(await token.balanceOf(recipient.address)).to.equal(amount);
   });
+
+  it("rejects zero-address transfer and approve", async function () {
+    const ParrotCoin = await ethers.getContractFactory("ParrotCoin");
+    const token = await ParrotCoin.deploy();
+    await token.deployed();
+
+    await expect(token.transfer(ethers.constants.AddressZero, 1)).to.be.revertedWith("Transfer to zero address");
+    await expect(token.approve(ethers.constants.AddressZero, 1)).to.be.revertedWith("Approve to zero address");
+  });
+
+  it("requires allowance reset before changing non-zero approval", async function () {
+    const [, spender] = await ethers.getSigners();
+    const ParrotCoin = await ethers.getContractFactory("ParrotCoin");
+    const token = await ParrotCoin.deploy();
+    await token.deployed();
+
+    await expect(token.approve(spender.address, 10)).to.not.be.reverted;
+    await expect(token.approve(spender.address, 20)).to.be.revertedWith("Reset allowance to 0 first");
+    await expect(token.approve(spender.address, 0)).to.not.be.reverted;
+    await expect(token.approve(spender.address, 20)).to.not.be.reverted;
+  });
 });

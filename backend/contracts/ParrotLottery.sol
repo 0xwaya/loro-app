@@ -62,10 +62,14 @@ contract ParrotLottery is VRFConsumerBase, Ownable {
     }  
 
     function setNftAddress(address _nftAddress) external onlyOwner {
+        require(_nftAddress != address(0), "NFT address cannot be zero");
+        require(_nftAddress.code.length > 0, "NFT address must be a contract");
         nftAddress = IERC721A(_nftAddress);
     }
 
     function setCoinAddress(address _coinAddress) external onlyOwner {
+        require(_coinAddress != address(0), "Coin address cannot be zero");
+        require(_coinAddress.code.length > 0, "Coin address must be a contract");
         coinAddress = IERC20(_coinAddress);
     }
 
