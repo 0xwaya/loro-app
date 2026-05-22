@@ -85,3 +85,16 @@ Build verification result on April 24, 2026:
 2. When upgrading OpenZeppelin or Chainlink dependencies, re-run `npm run build` and check override signatures.
 3. If deployment size is still a blocker on a target network, tune optimizer `runs` and/or reduce contract inheritance complexity.
 4. Add coverage to CI only after resolving `solidity-coverage` compatibility with the pinned Hardhat/toolbox versions.
+
+## 2026-05 Security/Wiring Hardening
+
+Recent review/debug changes:
+
+1. `ParrotLottery` now rejects zero-address and non-contract values in `setNftAddress` / `setCoinAddress` to prevent miswiring.
+2. `ParrotCoin` now rejects zero-address transfer/approval operations and requires allowance reset to `0` before changing to a new non-zero amount.
+3. Tests were expanded to verify these security guards.
+
+### Troubleshooting (environment-specific)
+
+- `frontend`: `npm run lint` ✅, `npm run build` ✅
+- `backend`: compile/test blocked ❌ due to DNS/network restriction while downloading solc (`binaries.soliditylang.org`)

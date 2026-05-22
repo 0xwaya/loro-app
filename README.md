@@ -3,6 +3,42 @@
 <img alt="Logo" align="justify-center"  src="./frontend/public/loro-logo.png" width="20%" />
 </p><br>
 
+# Loro DApp (Pandemonium)
+
+## Current Working Setup
+
+- Frontend app: `frontend/` (Next.js + RainbowKit + Wagmi)
+- Smart contracts + tests: `backend/` (Hardhat + Solidity)
+- Sepolia-first flow: mint, lottery, and balance pages are wired to Sepolia-compatible defaults
+
+## Local Commands
+
+```bash
+cd backend && npm install && npm run build && npm test
+cd frontend && npm install && npm run lint && npm run build
+```
+
+## 2026-05 Code Review + Debug Findings
+
+- Frontend lint/build currently succeed in this environment.
+- Backend compile/test are blocked in this environment because Hardhat cannot resolve `binaries.soliditylang.org` to fetch solc builds.
+- API route hardening was added:
+  - safer body parsing (handles invalid JSON),
+  - EVM address validation,
+  - explicit chain validation.
+- Contract hardening was added:
+  - lottery wiring now rejects zero-address and non-contract addresses,
+  - ERC20 transfer/approve guards for zero-address operations,
+  - approval reset rule to reduce ERC20 allowance race risks.
+- Contract tests were updated to cover the new guards.
+
+## Web3 Security Notes
+
+- Verify contract addresses before wiring lottery/token dependencies.
+- Keep private keys only in local `.env` files and never commit them.
+- Prefer resetting token allowances to `0` before setting a new non-zero value.
+- Keep production deployments on maintained oracles/VRF versions and re-audit before mainnet.
+
 
 # Loro DApp - Pandemonium 
 
@@ -138,4 +174,3 @@ You will see the build errors and lint warnings in the console.
 ## User Guide
 
 You can find detailed instructions on using Create Web3 DApp and many tips in [its documentation]().
-

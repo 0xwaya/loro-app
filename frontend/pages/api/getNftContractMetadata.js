@@ -1,20 +1,37 @@
 // Import necessary packages
-import { Network, Alchemy } from "alchemy-sdk";
+import { Alchemy } from "alchemy-sdk";
+import { parseRequestBody, isValidEvmAddress, resolveAlchemyNetwork } from "../../lib/apiUtils";
 
 // Define asynchronous function handler
 export default async function handler(req, res) {
-  // Parse request body
-  const { address, chain } = JSON.parse(req.body);
-
   // Check if request is a POST request, if not return an error message
   if (req.method !== "POST") {
     res.status(405).send({ message: "Only POST requests allowed" });
     return;
   }
+
+  const body = parseRequestBody(req);
+  if (!body) {
+    res.status(400).json({ message: "Invalid JSON body" });
+    return;
+  }
+
+  const { address, chain = "ETH_SEPOLIA" } = body;
+  if (!isValidEvmAddress(address)) {
+    res.status(400).json({ message: "Invalid contract address" });
+    return;
+  }
+
+  const network = resolveAlchemyNetwork(chain);
+  if (!network) {
+    res.status(400).json({ message: "Unsupported chain" });
+    return;
+  }
+
   // Set settings using environment variable and chain information
   const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: Network[chain],
+    network,
   };
 
   // Create instance of Alchemy SDK with the settings

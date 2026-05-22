@@ -1,4 +1,5 @@
-import { Network, Alchemy, TokenBalanceType } from 'alchemy-sdk';
+import { Alchemy, TokenBalanceType } from 'alchemy-sdk';
+import { parseRequestBody, isValidEvmAddress, resolveAlchemyNetwork } from '../../lib/apiUtils';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -6,11 +7,27 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { address, chain = 'ETH_SEPOLIA' } = JSON.parse(req.body);
+  const body = parseRequestBody(req);
+  if (!body) {
+    res.status(400).json({ message: 'Invalid JSON body' });
+    return;
+  }
+
+  const { address, chain = 'ETH_SEPOLIA' } = body;
+  if (!isValidEvmAddress(address)) {
+    res.status(400).json({ message: 'Invalid wallet address' });
+    return;
+  }
+
+  const network = resolveAlchemyNetwork(chain);
+  if (!network) {
+    res.status(400).json({ message: 'Unsupported chain' });
+    return;
+  }
 
   const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: Network[chain] || Network.ETH_SEPOLIA,
+    network,
   };
 
   const alchemy = new Alchemy(settings);

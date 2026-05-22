@@ -23,6 +23,7 @@ constructor() {
 }
 
 function transfer(address _to, uint256 _value) public override returns (bool) {
+    require(_to != address(0), "Transfer to zero address");
     require(balances[msg.sender] >= _value, "Insufficient balance");
 
     balances[msg.sender] -= _value;
@@ -33,6 +34,8 @@ function transfer(address _to, uint256 _value) public override returns (bool) {
 }
 
 function transferFrom(address _from, address _to, uint256 _value) public override returns (bool) {
+    require(_to != address(0), "Transfer to zero address");
+    require(_from != address(0), "Transfer from zero address");
     uint256 allowance_ = allowed[_from][msg.sender];
     require(balances[_from] >= _value && allowance_ >= _value, "Insufficient balance or allowance");
 
@@ -51,6 +54,9 @@ function balanceOf(address _owner) public view override returns (uint256) {
 }
 
 function approve(address _spender, uint256 _value) public override returns (bool) {
+    require(_spender != address(0), "Approve to zero address");
+    // Mitigates ERC20 allowance race condition by forcing explicit reset before changing non-zero allowances.
+    require(_value == 0 || allowed[msg.sender][_spender] == 0, "Reset allowance to 0 first");
     allowed[msg.sender][_spender] = _value;
     emit Approval(msg.sender, _spender, _value);
     return true;
